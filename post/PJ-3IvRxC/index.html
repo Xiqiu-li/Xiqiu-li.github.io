@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>计算机组成原理 | Xiqiu&#39;s blog</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1610127010013">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://Xiqiu-li.github.io">
+        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1610127010013" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://Xiqiu-li.github.io">
+        <h1 class="site-title">Xiqiu&#39;s blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">计算机组成原理</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-01-07</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/ji-suan-ji-ke-xue/">
+                    计算机科学
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="计算机组成原理">计算机组成原理</h1>
+<p>CPU 的组成部分：</p>
+<pre><code>算数逻辑单元 ALU ，负责执行算数和逻辑的运算，对应着&quot;冯.诺依曼 结构&quot;的运算器
+控制器，负责发送电信号和译码（即解码指令，以便让 ALU 认识并执行），对应着&quot;冯.诺依曼 结构&quot;的控制器
+寄存器，一些集成在 CPU 中的访问速度极快的存储单元，算是&quot;冯.诺依曼 结构&quot;存储器的一小部分
+</code></pre>
+<p>CPU 指令集可分为复杂指令集 cisc （指令复杂，参数多，不是原子指令，类似“指令糖”）和精简指令集 risc （指令简洁，原子操作）两种思路。</p>
+<p>CPU 执行一条指令的步骤如下：</p>
+<pre><code>取指 fetch ，从寄存器中获取指令
+译码 decode ，交给控制器来译码
+执行 excute，将译码结构交给 ALU 来执行
+回写 write-back ，将计算结果填写回寄存器
+</code></pre>
+<p>现代计算机的存储结构基本是：<code>CPU —&gt; SRAM —&gt; DRAM —&gt; Disk</code> 。越往后访问速度越慢，但价格越便宜、容量越大。</p>
+<p>一个硬盘有多张盘片叠成，不同盘片有编号<br>
+每张盘片上的存储颗粒成环形一圈圈地排布，每一圈称为磁道，有编号<br>
+每条磁道上都有一圈存储颗粒，每512*8（512字节，0.5KB）个存储颗粒作为一个扇区，扇区是硬盘上存储的最小物理单位<br>
+N个扇区可以组成簇，N取决于不同的文件系统或是文件系统的配置，簇是此文件系统中的最小存储单位<br>
+所有盘面上的同一磁道构成一个圆柱，称为柱面，柱面是系统分区的最小单位</p>
+<p>MDR:memory data register</p>
+<p>MAR:memory address register</p>
+<p>RAM:random access memory</p>
+<p>ROM:Read-Only Memory</p>
+<h2 id="boot">Boot</h2>
+<p>Master Boot Record,MBR with Bios,not support disk bigger than 2T.used 512byte.<br>
+in (0,0,1) address<br>
+柱面（Cylinder）<br>
+磁头（Heads）<br>
+扇区（Sector）<br>
+446byte MBR,4*16DPT,and the end 2byte of 0x55AA.</p>
+<p>DPT<br>
+80 01 01 00 0B FE BF FC 3F 00 00 00 7E 86 BB 00</p>
+<p>我们可以看到，最前面的&quot;80&quot;是一个分区的激活标志，表示系统可引导；&quot;01 01 00&quot;表示分区开始的磁头号为1，开始的扇区号为1，开始的柱面号为0；&quot;0B&quot;表示分区的系统类型是FAT32，其他比较常用的有04（FAT16）、07（NTFS）；&quot;FE BF FC&quot;表示分区结束的磁头号为254，分区结束的扇区号为63、分区结束的柱面号为764；&quot;3F 00 00 00&quot;表示首扇区的相对扇区号为63（小端序）；&quot;7E 86 BB 00&quot;表示总扇区数为12289662（小端序）。</p>
+<table>
+<thead>
+<tr>
+<th>偏移</th>
+<th style="text-align:right">长度（字节）</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00H</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">分区状态：00--&gt;非活动分区；80--&gt;活动分区；其它数值没有意义</td>
+</tr>
+<tr>
+<td>01H</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">分区起始磁头号（HEAD），用到全部8位</td>
+</tr>
+<tr>
+<td>02H</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">分区起始扇区号（SECTOR），占据02H的位0－5；该分区的起始磁柱号（CYLINDER），占据02H的位6－7和03H的全部8位</td>
+</tr>
+<tr>
+<td>04H</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">文件系统标志位</td>
+</tr>
+<tr>
+<td>05H</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">分区结束磁头号（HEAD），用到全部8位</td>
+</tr>
+<tr>
+<td>06H</td>
+<td style="text-align:right">2</td>
+<td style="text-align:center">分区结束扇区号（SECTOR），占据06H的位0－5；该分区的结束磁柱号（CYLINDER），占据06H的位6－7和07H的全部8位</td>
+</tr>
+<tr>
+<td>08H</td>
+<td style="text-align:right">4</td>
+<td style="text-align:center">分区起始相对扇区号</td>
+</tr>
+<tr>
+<td>0CH</td>
+<td style="text-align:right">4</td>
+<td style="text-align:center">分区总的扇区数</td>
+</tr>
+</tbody>
+</table>
+<p>GUID Partition Table,GPT with UEFI</p>
+<p><a href="https://www.ventoy.net/cn/index.html">Ventoy</a></p>
+<p>Grub</p>
+<p>Bios</p>
+<p>UEFI</p>
+<p>Hard Disk Drive,HDD</p>
+<p>Solid-state drive/disk,SSD</p>
+<h2 id="reference">reference:</h2>
+<p><a href="https://github.com/wangfupeng1988/read-notes/blob/master/video/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90.md">计算机组成</a></p>
+<p><a href="https://www.cnblogs.com/bellkosmos/p/detail_of_linux_file_system.html">Linux文件系统详解</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2013/02/booting.html">计算机是如何启动的？</a></p>
+<p><a href="https://write.as/e9bzn8lgxn6pzf1t.md">Memory</a></p>
+<p><a href="https://write.as/gfsikegb597lh01g.md">Boot</a></p>
+<p><a href="https://www.oschina.net/translate/what-every-programmer-should-know-about-memory-part1">每个程序员都应该了解的内存知识</a></p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://Xiqiu-li.github.io/post/shen-ru-li-jie-cao-zuo-xi-tong/">
+              <h3 class="post-title">
+                下一篇：深入理解操作系统
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://Xiqiu-li.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '2e451ce0d397e2949463',
+        clientSecret: '3c576796dc4dfe752c01188e4a2cd84899fb16a3',
+        repo: 'talk',
+        owner: 'Xiqiu-li',
+        admin: ['Xiqiu-li'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

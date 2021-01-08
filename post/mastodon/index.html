@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Mastodon | Xiqiu&#39;s blog</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1610127010013">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://Xiqiu-li.github.io">
+        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1610127010013" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://Xiqiu-li.github.io">
+        <h1 class="site-title">Xiqiu&#39;s blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">Mastodon</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-01-07</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/zhuan-zai/">
+                    转载
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>Mastodon, 那个本周在互联网上横行霸道的巨型卡通哺乳动物, 并不是硅谷创业公司的产品.</p>
+<p>相反，这款被誉为潜在的Twitter杀手的社交网络应用是一位24岁的刚毕业的大学生的心血结晶，他一心想要颠覆我们对社交网络的看法。</p>
+<p>正如这个疯狂流行的服务的德国出生的创始人Eugen Rochko周四通过玩家聊天服务Discord表示的那样，它的目标是以一种 &quot;不同的模式 &quot;来运营成熟的网站。</p>
+<p>Mastodon，以灭绝的动物而不是金属乐队命名，尽管Rochko是乐队和进步金属的粉丝，10月份在Hacker News上宣布。&quot;我决定试一试。&quot;Rochko在深夜的电话中说。</p>
+<p>他曾在2016年初开始建立这个项目。但直到他毕业后，他才决定将自己的项目投入到野外。他说，他想利用大学毕业和陷入朝九晚五工作的低迷之间的那段宝贵时间。</p>
+<p>因此，在他获得德国大学计算机科学学位后仅几个月，他就决定推出一个与他最喜欢的--但在他看来是有缺陷的--Twitter网站没有太大区别的开源社交网络。他把它命名为Mastodon，在过去的几天里，它已经起飞了。</p>
+<p>他所创造的是Twitter的一个可行的替代方案--如果你能接受toots、实例、联盟和无意义的验证标记。这就是这个社交网络的语言，它的建立是为了摆脱谩骂和滥用，而这些谩骂和滥用已经毁了这个微博网站的许多用户。&quot;我是Twitter的重度用户，&quot;Rochko解释说，但该网站的一些东西促使他寻找替代方案。要说明的是，Mastodon明显不是Twitter，即使它基于Tweetdeck的设计（Rochko说他仍然出于习惯在浏览器标签页中钉开）。他说他认为这是一个替代品。</p>
+<p>Rochko建立了一个去中心化的生态系统，而不是Twitterverse，它的工作方式是他 &quot;希望Twitter会这样设计&quot;的工作方式。他将Mastodon塑造为在独立的服务器或实例上运行。主实例是Mastodon.social。其他实例则由志愿者团队主持和管理，完全独立于他的旗舰实例。</p>
+<p>联合的时间线连接了所有来自不同实例的toots（也就是推文，有500个字符的限制，而不是Twitter的140个字符）。如果一个实例分崩离析或休眠，整个平台就会保持完整，Rochko不必管理、支付或支持分散系统的众多分支。这就是Rochko可以保持反对企业架构、货币化和广告的强硬立场的原因。</p>
+<p>在过去的几个月里，Rochko一直在大声疾呼为什么需要存在一种新型的社交网络。在Medium的帖子和其他网站上，他深入探讨了Facebook和Twitter等传统网站的缺陷。在3月份的一篇名为 &quot;从Twitter的错误中学习 &quot;的文章中，他阐述了Mastodon的联合系统--在这里，&quot;你有能力选择一个拥有你同意的规则和政策的实例&quot;--如何更有利于 &quot;更小、更紧密的社区&quot;，而这些社区 &quot;不太容易滋生有毒的行为&quot;。</p>
+<p>不同实例中的版主也会对滥用行为进行控制。正如罗奇科在2月份发布的关于平台控制的文章，&quot;Facebook根本不能给任何人做任何事情的权力，因为这种权力最终总是会在Facebook本身，它既控制着软件、服务器，也控制着版主政策。&quot;</p>
+<p>在周四的电话中，他表示Twitter最近的一些变化有助于将人们推向他的网站--所有这些都是有机的，因为他说他没有新闻策略。五天前有24000名用户注册。到周四，该网站拥有超过4万名用户，据罗奇科介绍。一次有6000个活跃用户--对于Rochko一个人来说，实在是太多了。</p>
+<p>他已经关闭了他的实例Mastodon.social的注册，但越来越多的其他实例都是开放的。&quot;现在我的重点是让我现在的那些用户顺利地使用服务。&quot;他说，他的实例有可能很快重新开放起来。</p>
+<p>罗奇科不得不对实例列表中出现的一些域名感到好笑。他指出了Witches.town和Slime.global。随着代码在GitHub上的开放和提供，他希望一些铁杆用户能够 &quot;进入代码&quot;，成为运行这个成长平台的资源。</p>
+<p>这个网站确实是项目众筹网站Patreon的一个成功案例，在Rochko这几个月建立平台的时候，Patreon帮助支持了他。在过去的几天里，认捐的金额已经翻了一番，从几天前的800美元增加到了每月2000多美元，所以他很乐观地认为自己可以继续全职工作Mastodon。就在几个月前，他还在为母校从事自由软件开发项目。现在不一样了。</p>
+<p>正如他在GitHub页面上写的那样，这不是为了钱。&quot;我不是一家公司，&quot;他说。尽管如果他的经常性Patreon付款不断增加，他可以开始给自己发工资，并可能雇人帮助他处理平台。他说，最近有人找他，自称是早期投资人，他很快就回绝了这个说法。&quot;没有人需要买它，&quot;他说。</p>
+<p>随着用户群的增长远远超过了朋友和开发者社区，罗奇科很兴奋，因为它正在成倍增长。他甚至可以接受--也鼓励公司、媒体和其他组织制作自己的个人资料和实例--在Rochko看来，这就是网络的意义所在。</p>
+<p>Rochko说，他的父母不在社交媒体上，也没有为Mastodon破例--还没有。如果Rochko对Mastodon的设想得以实现，它将成为 &quot;主流意识 &quot;的一部分，&quot;开始被广泛使用&quot;，他说。</p>
+<p>到那时，Mastodon将需要一个新的实例，专门为父母、怪叔叔和其他 &quot;老人 &quot;服务。但一旦其达到这个程度，这个酷炫的 &quot;它 &quot;平台会不会已经消亡？这很难预测，但在那之前，Rochko都是为了toots。</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://Xiqiu-li.github.io/post/xie-yi-er-bu-shi-ping-tai-yan-lun-zi-you-de-ji-zhu-tu-jing/">
+              <h3 class="post-title">
+                下一篇：协议，而不是平台：言论自由的技术途径
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://Xiqiu-li.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '2e451ce0d397e2949463',
+        clientSecret: '3c576796dc4dfe752c01188e4a2cd84899fb16a3',
+        repo: 'talk',
+        owner: 'Xiqiu-li',
+        admin: ['Xiqiu-li'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

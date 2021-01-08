@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>关于 | Xiqiu&#39;s blog</title>
+<title>Debian使用记录 | Xiqiu&#39;s blog</title>
 <meta name="description" content="">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -86,24 +86,100 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">关于</h2>
+          <h2 class="post-title">Debian使用记录</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-01-25</span>
+            <span><i class="icon-calendar-outline"></i> 2021-01-07</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/cao-zuo-xi-tong/">
+                    操作系统
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/linux/">
+                    linux
+                    
+                  </a>
+                
+              </span>
             
           </div>
           <div class="post-content">
-            <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
+            <h2 id="gui">GUI</h2>
+<p>KDE</p>
+<p>Gnome</p>
+<p>Xfce</p>
+<h2 id="cli">CLI</h2>
+<p>zshell<br>
+bash默认配置文件为 .bashrc，若修改默认shell为zshell，则使用.zshrc文件为配置文件，文件位于用户文件夹内。</p>
+<h2 id="command">command</h2>
+<p>使用whereis查找软件目录<br>
+使用lsblk查看挂载硬盘<br>
+使用time测试命令执行时间</p>
+<h2 id="network">network</h2>
+<p>dns catch</p>
+<blockquote>
+<p>sudo /etc/init.d/networking restart<br>
+//清除DNS缓存</p>
 </blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+<blockquote>
+<p>resolvconf -u //更新DNS</p>
+</blockquote>
+<p>nameserver</p>
+<blockquote>
+<p>/etc/resolv.conf  //DNS server 临时缓存</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>sudo apt insatll resolvconf<br>
+/etc/resolvconf/resolv.conf.d/original 长期修改</p>
+</blockquote>
+<h2 id="source">source</h2>
+<blockquote>
+<p>dpkg -S /usr/bin/tee //查看命令所属包<br>
+sudo apt-get source coreutils //下载源码</p>
+</blockquote>
+<h2 id="error">error</h2>
+<p>1.firefox下的中文输入支持问题</p>
+<blockquote>
+<p>将fcitx修改为ibus-rime解决</p>
+</blockquote>
+<p>2.终端下的中文显示问题</p>
+<blockquote>
+<p>仍未解决</p>
+</blockquote>
+<p>3.无线网卡的固件支持问题</p>
+<blockquote>
+<p>按网络教程查看网卡型号，使用apt安装固件</p>
+</blockquote>
+<p>见一人显卡驱动有问题，无法进入GUI<br>
+解决方如下</p>
+<blockquote>
+<p>sudo apt install linux-image-5.9.0-0.bpo.2-amd64 //更新内核<br>
+sudo update-grub //更新grub<br>
+sudo apt install firmware-linux-nonfree //已提前添加特别源<br>
+sudo reboot //重启</p>
+</blockquote>
+<h2 id="reference">reference</h2>
+<p>ipconfig: https://blog.csdn.net/u011857683/article/details/83758503<br>
+Systemd 入门教程：命令篇 http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html</p>
 
           </div>
         </div>
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://Xiqiu-li.github.io/post/emacs/">
+              <h3 class="post-title">
+                下一篇：emacs
+              </h3>
+            </a>
+          </div>
+          
       </div>
 
       
