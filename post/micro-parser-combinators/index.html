@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>[翻译]Micro Parser Combinators | Xiqiu&#39;s blog</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1610559238949">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://Xiqiu-li.github.io">
+        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1610559238949" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://Xiqiu-li.github.io">
+        <h1 class="site-title">Xiqiu&#39;s blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">[翻译]Micro Parser Combinators</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-01-11</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/fan-yi/">
+                    翻译
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/bian-yi-yuan-li/">
+                    编译原理
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p><a href="https://github.com/orangeduck/mpc">原文</a></p>
+<h2 id="关于">关于</h2>
+<p>mpc是一个轻量级的、强力的解析器组合子C语言库</p>
+<p>如果你在做下面这些事，可能你会对mpc感兴趣<br>
+实现一门新语言<br>
+创造一种新的数据格式<br>
+解析现有的程序语言<br>
+嵌入领域特定语言<br>
+实施格林斯潘的第十条规则</p>
+<h2 id="特性">特性</h2>
+<p>MPC<br>
+「泛型」<br>
+「预测，递归下降」<br>
+易于集成（在标准C中<br>
+自动生成错误消息<br>
+正则表达式解析器生成器<br>
+语言/语法解析器生成器</p>
+<h2 id="备选方案">备选方案</h2>
+<p>当前基于C的解析器组合子库的备选方案是Ceslum3的分支，mpc支持很多他不支持的特性。也克服了很多潜在问题。<br>
+mpc适用于通用类型「？泛型？」<br>
+mpc不依赖「Boehm-Demers-Weiser」垃圾回收<br>
+MPC不使用setjmp和longjmp进行错误<br>
+MPC不污染名字空间</p>
+<h1 id="快速开始">快速开始</h1>
+<p>这里是如何使用MPC来创建一个基本数学表达式语言的解析器</p>
+<pre><code>mpc_parser_t *Expr  = mpc_new(&quot;expression&quot;);
+mpc_parser_t *Prod  = mpc_new(&quot;product&quot;);
+mpc_parser_t *Value = mpc_new(&quot;value&quot;);
+mpc_parser_t *Maths = mpc_new(&quot;maths&quot;);
+
+mpca_lang(MPCA_LANG_DEFAULT,
+  &quot; expression : &lt;product&gt; (('+' | '-') &lt;product&gt;)*; &quot;
+  &quot; product    : &lt;value&gt;   (('*' | '/')   &lt;value&gt;)*; &quot;
+  &quot; value      : /[0-9]+/ | '(' &lt;expression&gt; ')';    &quot;
+  &quot; maths      : /^/ &lt;expression&gt; /$/;               &quot;,
+  Expr, Prod, Value, Maths, NULL);
+
+mpc_result_t r;
+
+if (mpc_parse(&quot;input&quot;, input, Maths, &amp;r)) {
+  mpc_ast_print(r.output);
+  mpc_ast_delete(r.output);
+} else {
+  mpc_err_print(r.error);
+  mpc_err_delete(r.error);
+}
+
+mpc_cleanup(4, Expr, Prod, Value, Maths);
+</code></pre>
+<p>如果你想为<code>(4 * 2 * 11 + 2) - 5</code>字符串设置input，打印的输出会是这样。</p>
+<pre><code>&gt;
+  regex
+  expression|&gt;
+    value|&gt;
+      char:1:1 '('
+      expression|&gt;
+        product|&gt;
+          value|regex:1:2 '4'
+          char:1:4 '*'
+          value|regex:1:6 '2'
+          char:1:8 '*'
+          value|regex:1:10 '11'
+        char:1:13 '+'
+        product|value|regex:1:15 '2'
+      char:1:16 ')'
+    char:1:18 '-'
+    product|value|regex:1:20 '5'
+  regex
+</code></pre>
+<h1 id="开始">开始</h1>
+<h2 id="介绍">介绍</h2>
+<p>解析器组合子是对特定语言进行结构化编码。他们可以使用直观的运算符组合在一起，创建越来越复杂的解析器。使用这些符号可以轻松、快速、高效的解析和处理语法和语言。</p>
+<p>解析器组合子背后的技巧是观察到，通过以一种特殊的方式构造库，可以使构建解析器组合子看起来像是自己编写语法。 因此，用户不必描述如何解析一种语言，而只需指定语言本身，该库就会得出如何解析它的方式……就像是在魔术一样！</p>
+<p>mpc可以在此模式下使用，或者如上例所示，您可以直接将语法指定为字符串或文件。</p>
+<h2 id="基本解析器">基本解析器</h2>
+<h3 id="字符串解析器">字符串解析器</h3>
+<p>以下所有函数构造类型为<code>mpc_parser_t *</code>的解析器。 所有这些解析器都返回一个新分配的<code>char *</code>，其中包含他们设法匹配的字符。 如果不成功，它们将返回错误。 它们具有以下功能。</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_any(void);
+</code></pre>
+<p>匹配任意单个字符</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_char(char c);
+</code></pre>
+<p>匹配单个给定字符<code>c</code></p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_range(char s, char e);
+</code></pre>
+<p>匹配范围从<code>s</code>到<code>e</code>的任何单个给定字符</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_oneof(const char *s);
+</code></pre>
+<p>匹配字符串<code>s</code>中的任何单个给定字符</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_noneof(const char *s);
+</code></pre>
+<p>匹配不在字符串<code>s</code>中的任何单个给定字符</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_satisfy(int(*f)(char));
+</code></pre>
+<p>匹配任何满足函数<code>f</code>的单个给定字符</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_string(const char *s);
+</code></pre>
+<p>完全匹配<code>s</code>字符串</p>
+<h3 id="其他解析器">其他解析器</h3>
+<p>Several other functions exist that construct parsers with some other special functionality.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_pass(void);
+</code></pre>
+<p>Consumes no input, always successful, returns <code>NULL</code></p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_fail(const char *m);
+mpc_parser_t *mpc_failf(const char *fmt, ...);
+</code></pre>
+<p>Consumes no input, always fails with message <code>m</code> or formatted string <code>fmt</code>.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_lift(mpc_ctor_t f);
+</code></pre>
+<p>Consumes no input, always successful, returns the result of function <code>f</code></p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_lift_val(mpc_val_t *x);
+</code></pre>
+<p>Consumes no input, always successful, returns <code>x</code></p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_state(void);
+</code></pre>
+<p>Consumes no input, always successful, returns a copy of the parser state as a <code>mpc_state_t *</code>. This state is newly allocated and so needs to be released with <code>free</code> when finished with.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_anchor(int(*f)(char,char));
+</code></pre>
+<p>Consumes no input. Successful when function <code>f</code> returns true. Always returns <code>NULL</code>.</p>
+<p>Function <code>f</code> is a <em>anchor</em> function. It takes as input the last character parsed, and the next character in the input, and returns success or failure. This function can be set by the user to ensure some condition is met. For example to test that the input is at a boundary between words and non-words.</p>
+<p>At the start of the input the first argument is set to <code>'\0'</code>. At the end of the input the second argument is set to <code>'\0'</code>.</p>
+<h2 id="解析中">解析中</h2>
+<p>Once you've build a parser, you can run it on some input using one of the following functions. These functions return <code>1</code> on success and <code>0</code> on failure. They output either the result, or an error to a <code>mpc_result_t</code> variable. This type is defined as follows.</p>
+<pre><code class="language-c">typedef union {
+  mpc_err_t *error;
+  mpc_val_t *output;
+} mpc_result_t;
+</code></pre>
+<p>where <code>mpc_val_t *</code> is synonymous with <code>void *</code> and simply represents some pointer to data - the exact type of which is dependant on the parser.</p>
+<hr>
+<pre><code class="language-c">int mpc_parse(const char *filename, const char *string, mpc_parser_t *p, mpc_result_t *r);
+</code></pre>
+<p>Run a parser on some string.</p>
+<hr>
+<pre><code class="language-c">int mpc_parse_file(const char *filename, FILE *file, mpc_parser_t *p, mpc_result_t *r);
+</code></pre>
+<p>Run a parser on some file.</p>
+<hr>
+<pre><code class="language-c">int mpc_parse_pipe(const char *filename, FILE *pipe, mpc_parser_t *p, mpc_result_t *r);
+</code></pre>
+<p>Run a parser on some pipe (such as <code>stdin</code>).</p>
+<hr>
+<pre><code class="language-c">int mpc_parse_contents(const char *filename, mpc_parser_t *p, mpc_result_t *r);
+</code></pre>
+<p>Run a parser on the contents of some file.</p>
+<h2 id="组合子">组合子</h2>
+<p>Combinators are functions that take one or more parsers and return a new parser of some given functionality.</p>
+<p>These combinators work independently of exactly what data type the parser(s) supplied as input return. In languages such as Haskell ensuring you don't input one type of data into a parser requiring a different type is done by the compiler. But in C we don't have that luxury. So it is at the discretion of the programmer to ensure that he or she deals correctly with the outputs of different parser types.</p>
+<p>A second annoyance in C is that of manual memory management. Some parsers might get half-way and then fail. This means they need to clean up any partial result that has been collected in the parse. In Haskell this is handled by the Garbage Collector, but in C these combinators will need to take <em>destructor</em> functions as input, which say how clean up any partial data that has been collected.</p>
+<p>Here are the main combinators and how to use then.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_expect(mpc_parser_t *a, const char *e);
+mpc_parser_t *mpc_expectf(mpc_parser_t *a, const char *fmt, ...);
+</code></pre>
+<p>Returns a parser that runs <code>a</code>, and on success returns the result of <code>a</code>, while on failure reports that <code>e</code> was expected.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_apply(mpc_parser_t *a, mpc_apply_t f);
+mpc_parser_t *mpc_apply_to(mpc_parser_t *a, mpc_apply_to_t f, void *x);
+</code></pre>
+<p>Returns a parser that applies function <code>f</code> (optionality taking extra input <code>x</code>) to the result of parser <code>a</code>.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_check(mpc_parser_t *a, mpc_dtor_t da, mpc_check_t f, const char *e);
+mpc_parser_t *mpc_check_with(mpc_parser_t *a, mpc_dtor_t da, mpc_check_with_t f, void *x, const char *e);
+mpc_parser_t *mpc_checkf(mpc_parser_t *a, mpc_dtor_t da, mpc_check_t f, const char *fmt, ...);
+mpc_parser_t *mpc_check_withf(mpc_parser_t *a, mpc_dtor_t da, mpc_check_with_t f, void *x, const char *fmt, ...);
+</code></pre>
+<p>Returns a parser that applies function <code>f</code> (optionally taking extra input <code>x</code>) to the result of parser <code>a</code>. If <code>f</code> returns non-zero, then the parser succeeds and returns the value of <code>a</code> (possibly modified by <code>f</code>). If <code>f</code> returns zero, then the parser fails with message <code>e</code>, and the result of <code>a</code> is destroyed with the destructor <code>da</code>.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_not(mpc_parser_t *a, mpc_dtor_t da);
+mpc_parser_t *mpc_not_lift(mpc_parser_t *a, mpc_dtor_t da, mpc_ctor_t lf);
+</code></pre>
+<p>Returns a parser with the following behaviour. If parser <code>a</code> succeeds, then it fails and consumes no input. If parser <code>a</code> fails, then it succeeds, consumes no input and returns <code>NULL</code> (or the result of lift function <code>lf</code>). Destructor <code>da</code> is used to destroy the result of <code>a</code> on success.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_maybe(mpc_parser_t *a);
+mpc_parser_t *mpc_maybe_lift(mpc_parser_t *a, mpc_ctor_t lf);
+</code></pre>
+<p>Returns a parser that runs <code>a</code>. If <code>a</code> is successful then it returns the result of <code>a</code>. If <code>a</code> is unsuccessful then it succeeds, but returns <code>NULL</code> (or the result of <code>lf</code>).</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_many(mpc_fold_t f, mpc_parser_t *a);
+</code></pre>
+<p>Runs <code>a</code> zero or more times until it fails. Results are combined using fold function <code>f</code>. See the <em>Function Types</em> section for more details.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_many1(mpc_fold_t f, mpc_parser_t *a);
+</code></pre>
+<p>Runs <code>a</code> one or more times until it fails. Results are combined with fold function <code>f</code>.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_count(int n, mpc_fold_t f, mpc_parser_t *a, mpc_dtor_t da);
+</code></pre>
+<p>Runs <code>a</code> exactly <code>n</code> times. If this fails, any partial results are destructed with <code>da</code>. If successful results of <code>a</code> are combined using fold function <code>f</code>.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_or(int n, ...);
+</code></pre>
+<p>Attempts to run <code>n</code> parsers in sequence, returning the first one that succeeds. If all fail, returns an error.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_and(int n, mpc_fold_t f, ...);
+</code></pre>
+<p>Attempts to run <code>n</code> parsers in sequence, returning the fold of the results using fold function <code>f</code>. First parsers must be specified, followed by destructors for each parser, excluding the final parser. These are used in case of partial success. For example: <code>mpc_and(3, mpcf_strfold, mpc_char('a'), mpc_char('b'), mpc_char('c'), free, free);</code> would attempt to match <code>'a'</code> followed by <code>'b'</code> followed by <code>'c'</code>, and if successful would concatenate them using <code>mpcf_strfold</code>. Otherwise would use <code>free</code> on the partial results.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_predictive(mpc_parser_t *a);
+</code></pre>
+<p>Returns a parser that runs <code>a</code> with backtracking disabled. This means if <code>a</code> consumes more than one character, it will not be reverted, even on failure. Turning backtracking off has good performance benefits for grammars which are <code>LL(1)</code>. These are grammars where the first character completely determines the parse result - such as the decision of parsing either a C identifier, number, or string literal. This option should not be used for non <code>LL(1)</code> grammars or it will produce incorrect results or crash the parser.</p>
+<p>Another way to think of <code>mpc_predictive</code> is that it can be applied to a parser (for a performance improvement) if either successfully parsing the first character will result in a completely successful parse, or all of the referenced sub-parsers are also <code>LL(1)</code>.</p>
+<h2 id="function-types">Function Types</h2>
+<p>The combinator functions take a number of special function types as function pointers. Here is a short explanation of those types are how they are expected to behave. It is important that these behave correctly otherwise it is easy to introduce memory leaks or crashes into the system.</p>
+<hr>
+<pre><code class="language-c">typedef void(*mpc_dtor_t)(mpc_val_t*);
+</code></pre>
+<p>Given some pointer to a data value it will ensure the memory it points to is freed correctly.</p>
+<hr>
+<pre><code class="language-c">typedef mpc_val_t*(*mpc_ctor_t)(void);
+</code></pre>
+<p>Returns some data value when called. It can be used to create <em>empty</em> versions of data types when certain combinators have no known default value to return. For example it may be used to return a newly allocated empty string.</p>
+<hr>
+<pre><code class="language-c">typedef mpc_val_t*(*mpc_apply_t)(mpc_val_t*);
+typedef mpc_val_t*(*mpc_apply_to_t)(mpc_val_t*,void*);
+</code></pre>
+<p>This takes in some pointer to data and outputs some new or modified pointer to data, ensuring to free the input data if it is no longer used. The <code>apply_to</code> variation takes in an extra pointer to some data such as global state.</p>
+<hr>
+<pre><code class="language-c">typedef int(*mpc_check_t)(mpc_val_t**);
+typedef int(*mpc_check_with_t)(mpc_val_t**,void*);
+</code></pre>
+<p>This takes in some pointer to data and outputs 0 if parsing should stop with an error. Additionally, this may change or free the input data. The <code>check_with</code> variation takes in an extra pointer to some data such as global state.</p>
+<hr>
+<pre><code class="language-c">typedef mpc_val_t*(*mpc_fold_t)(int,mpc_val_t**);
+</code></pre>
+<p>This takes a list of pointers to data values and must return some combined or folded version of these data values. It must ensure to free any input data that is no longer used once the combination has taken place.</p>
+<h1 id="案例研究-标识符">案例研究-标识符</h1>
+<h2 id="组合子方法">组合子方法</h2>
+<p>Using the above combinators we can create a parser that matches a C identifier.</p>
+<p>When using the combinators we need to supply a function that says how to combine two <code>char *</code>.</p>
+<p>For this we build a fold function that will concatenate zero or more strings together. For this sake of this tutorial we will write it by hand, but this (as well as many other useful fold functions), are actually included in <em>mpc</em> under the <code>mpcf_*</code> namespace, such as <code>mpcf_strfold</code>.</p>
+<pre><code class="language-c">mpc_val_t *strfold(int n, mpc_val_t **xs) {
+  char *x = calloc(1, 1);
+  int i;
+  for (i = 0; i &lt; n; i++) {
+    x = realloc(x, strlen(x) + strlen(xs[i]) + 1);
+    strcat(x, xs[i]);
+    free(xs[i]);
+  }
+  return x;
+}
+</code></pre>
+<p>We can use this to specify a C identifier, making use of some combinators to say how the basic parsers are combined.</p>
+<pre><code class="language-c">mpc_parser_t *alpha = mpc_or(2, mpc_range('a', 'z'), mpc_range('A', 'Z'));
+mpc_parser_t *digit = mpc_range('0', '9');
+mpc_parser_t *underscore = mpc_char('_');
+
+mpc_parser_t *ident = mpc_and(2, strfold,
+  mpc_or(2, alpha, underscore),
+  mpc_many(strfold, mpc_or(3, alpha, digit, underscore)),
+  free);
+
+/* Do Some Parsing... */
+
+mpc_delete(ident);
+</code></pre>
+<p>Notice that previous parsers are used as input to new parsers we construct from the combinators. Note that only the final parser <code>ident</code> must be deleted. When we input a parser into a combinator we should consider it to be part of the output of that combinator.</p>
+<p>Because of this we shouldn't create a parser and input it into multiple places, or it will be doubly freed.</p>
+<h2 id="正则方法">正则方法</h2>
+<p>There is an easier way to do this than the above method. <em>mpc</em> comes with a handy regex function for constructing parsers using regex syntax. We can specify an identifier using a regex pattern as shown below.</p>
+<pre><code class="language-c">mpc_parser_t *ident = mpc_re(&quot;[a-zA-Z_][a-zA-Z_0-9]*&quot;);
+
+/* Do Some Parsing... */
+
+mpc_delete(ident);
+</code></pre>
+<h2 id="库方法">库方法</h2>
+<p>Although if we really wanted to create a parser for C identifiers, a function for creating this parser comes included in <em>mpc</em> along with many other common parsers.</p>
+<pre><code class="language-c">mpc_parser_t *ident = mpc_ident();
+
+/* Do Some Parsing... */
+
+mpc_delete(ident);
+</code></pre>
+<h1 id="解析器参考">解析器参考</h1>
+<p>Building parsers in the above way can have issues with self-reference or cyclic-reference. To overcome this we can separate the construction of parsers into two different steps. Construction and Definition.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_new(const char *name);
+</code></pre>
+<p>This will construct a parser called <code>name</code> which can then be used as input to others, including itself, without fear of being deleted. Any parser created using <code>mpc_new</code> is said to be <em>retained</em>. This means it will behave differently to a normal parser when referenced. When deleting a parser that includes a <em>retained</em> parser, the <em>retained</em> parser will not be deleted along with it. To delete a retained parser <code>mpc_delete</code> must be used on it directly.</p>
+<p>A <em>retained</em> parser can then be <em>defined</em> using...</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_define(mpc_parser_t *p, mpc_parser_t *a);
+</code></pre>
+<p>This assigns the contents of parser <code>a</code> to <code>p</code>, and deletes <code>a</code>. With this technique parsers can now reference each other, as well as themselves, without trouble.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_undefine(mpc_parser_t *p);
+</code></pre>
+<p>A final step is required. Parsers that reference each other must all be undefined before they are deleted. It is important to do any undefining before deletion. The reason for this is that to delete a parser it must look at each sub-parser that is used by it. If any of these have already been deleted a segfault is unavoidable - even if they were retained beforehand.</p>
+<hr>
+<pre><code class="language-c">void mpc_cleanup(int n, ...);
+</code></pre>
+<p>To ease the task of undefining and then deleting parsers <code>mpc_cleanup</code> can be used. It takes <code>n</code> parsers as input, and undefines them all, before deleting them all.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_copy(mpc_parser_t *a);
+</code></pre>
+<p>This function makes a copy of a parser <code>a</code>. This can be useful when you want to<br>
+use a parser as input for some other parsers multiple times without retaining<br>
+it.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpc_re(const char *re);
+mpc_parser_t *mpc_re_mode(const char *re, int mode);
+</code></pre>
+<p>This function takes as input the regular expression <code>re</code> and builds a parser<br>
+for it. With the <code>mpc_re_mode</code> function optional mode flags can also be given.<br>
+Available flags are <code>MPC_RE_MULTILINE</code> / <code>MPC_RE_M</code> where the start of input<br>
+character <code>^</code> also matches the beginning of new lines and the end of input <code>$</code><br>
+character also matches new lines, and <code>MPC_RE_DOTALL</code> / <code>MPC_RE_S</code> where the<br>
+any character token <code>.</code> also matches newlines (by default it doesn't).</p>
+<h1 id="库参考">库参考</h1>
+<h2 id="通用解析器">通用解析器</h2>
+<table>
+  <tr><td><code>mpc_soi</code></td><td>Matches only the start of input, returns <code>NULL</code></td></tr>
+  <tr><td><code>mpc_eoi</code></td><td>Matches only the end of input, returns <code>NULL</code></td></tr>
+  <tr><td><code>mpc_boundary</code></td><td>Matches only the boundary between words, returns <code>NULL</code></td></tr>
+  <tr><td><code>mpc_boundary_newline</code></td><td>Matches the start of a new line, returns <code>NULL</code></td></tr>
+  <tr><td><code>mpc_whitespace</code></td><td>Matches any whitespace character <code>" \f\n\r\t\v"</code></td></tr>
+  <tr><td><code>mpc_whitespaces</code></td><td>Matches zero or more whitespace characters</td></tr>
+  <tr><td><code>mpc_blank</code></td><td>Matches whitespaces and frees the result, returns <code>NULL</code></td></tr>
+  <tr><td><code>mpc_newline</code></td><td>Matches <code>'\n'</code></td></tr>
+  <tr><td><code>mpc_tab</code></td><td>Matches <code>'\t'</code></td></tr>
+  <tr><td><code>mpc_escape</code></td><td>Matches a backslash followed by any character</td></tr>
+  <tr><td><code>mpc_digit</code></td><td>Matches any character in the range <code>'0'</code> - <code>'9'</code></td></tr>
+  <tr><td><code>mpc_hexdigit</code></td><td>Matches any character in the range <code>'0</code> - <code>'9'</code> as well as <code>'A'</code> - <code>'F'</code> and <code>'a'</code> - <code>'f'</code></td></tr>
+  <tr><td><code>mpc_octdigit</code></td><td>Matches any character in the range <code>'0'</code> - <code>'7'</code></td></tr>
+  <tr><td><code>mpc_digits</code></td><td>Matches one or more digit</td></tr>
+  <tr><td><code>mpc_hexdigits</code></td><td>Matches one or more hexdigit</td></tr>
+  <tr><td><code>mpc_octdigits</code></td><td>Matches one or more octdigit</td></tr>
+  <tr><td><code>mpc_lower</code></td><td>Matches any lower case character</td></tr>
+  <tr><td><code>mpc_upper</code></td><td>Matches any upper case character</td></tr>
+  <tr><td><code>mpc_alpha</code></td><td>Matches any alphabet character</td></tr>
+  <tr><td><code>mpc_underscore</code></td><td>Matches <code>'_'</code></td></tr>
+  <tr><td><code>mpc_alphanum</code></td><td>Matches any alphabet character, underscore or digit</td></tr>
+  <tr><td><code>mpc_int</code></td><td>Matches digits and returns an <code>int*</code></td></tr>
+  <tr><td><code>mpc_hex</code></td><td>Matches hexdigits and returns an <code>int*</code></td></tr>
+  <tr><td><code>mpc_oct</code></td><td>Matches octdigits and returns an <code>int*</code></td></tr>
+  <tr><td><code>mpc_number</code></td><td>Matches <code>mpc_int</code>, <code>mpc_hex</code> or <code>mpc_oct</code></td></tr>
+  <tr><td><code>mpc_real</code></td><td>Matches some floating point number as a string</td></tr>
+  <tr><td><code>mpc_float</code></td><td>Matches some floating point number and returns a <code>float*</code></td></tr>
+  <tr><td><code>mpc_char_lit</code></td><td>Matches some character literal surrounded by <code>'</code></td></tr>
+  <tr><td><code>mpc_string_lit</code></td><td>Matches some string literal surrounded by <code>"</code></td></tr>
+  <tr><td><code>mpc_regex_lit</code></td><td>Matches some regex literal surrounded by <code>/</code></td></tr>
+  <tr><td><code>mpc_ident</code></td><td>Matches a C style identifier</td></tr>
+</table>
+<h2 id="有用的解析器">有用的解析器</h2>
+<table>
+  <tr><td><code>mpc_startswith(mpc_parser_t *a);</code></td><td>Matches the start of input followed by <code>a</code></td></tr>
+  <tr><td><code>mpc_endswith(mpc_parser_t *a, mpc_dtor_t da);</code></td><td>Matches <code>a</code> followed by the end of input</td></tr>
+  <tr><td><code>mpc_whole(mpc_parser_t *a, mpc_dtor_t da);</code></td><td>Matches the start of input, <code>a</code>, and the end of input</td></tr>
+  <tr><td><code>mpc_stripl(mpc_parser_t *a);</code></td><td>Matches <code>a</code> first consuming any whitespace to the left</td></tr>
+  <tr><td><code>mpc_stripr(mpc_parser_t *a);</code></td><td>Matches <code>a</code> then consumes any whitespace to the right</td></tr>
+  <tr><td><code>mpc_strip(mpc_parser_t *a);</code></td><td>Matches <code>a</code> consuming any surrounding whitespace</td></tr>
+  <tr><td><code>mpc_tok(mpc_parser_t *a);</code></td><td>Matches <code>a</code> and consumes any trailing whitespace</td></tr>
+  <tr><td><code>mpc_sym(const char *s);</code></td><td>Matches string <code>s</code> and consumes any trailing whitespace</td></tr>
+  <tr><td><code>mpc_total(mpc_parser_t *a, mpc_dtor_t da);</code></td><td>Matches the whitespace consumed <code>a</code>, enclosed in the start and end of input</td></tr>
+  <tr><td><code>mpc_between(mpc_parser_t *a, mpc_dtor_t ad, <br /> const char *o, const char *c);</code></td><td> Matches <code>a</code> between strings <code>o</code> and <code>c</code></td></tr>
+  <tr><td><code>mpc_parens(mpc_parser_t *a, mpc_dtor_t ad);</code></td><td>Matches <code>a</code> between <code>"("</code> and <code>")"</code></td></tr>
+  <tr><td><code>mpc_braces(mpc_parser_t *a, mpc_dtor_t ad);</code></td><td>Matches <code>a</code> between <code>"<"</code> and <code>">"</code></td></tr>
+  <tr><td><code>mpc_brackets(mpc_parser_t *a, mpc_dtor_t ad);</code></td><td>Matches <code>a</code> between <code>"{"</code> and <code>"}"</code></td></tr>
+  <tr><td><code>mpc_squares(mpc_parser_t *a, mpc_dtor_t ad);</code></td><td>Matches <code>a</code> between <code>"["</code> and <code>"]"</code></td></tr>
+  <tr><td><code>mpc_tok_between(mpc_parser_t *a, mpc_dtor_t ad, <br /> const char *o, const char *c);</code></td><td>Matches <code>a</code> between <code>o</code> and <code>c</code>, where <code>o</code> and <code>c</code> have their trailing whitespace striped.</td></tr>
+  <tr><td><code>mpc_tok_parens(mpc_parser_t *a, mpc_dtor_t ad);</code></td><td>Matches <code>a</code> between trailing whitespace consumed <code>"("</code> and <code>")"</code></td></tr>
+  <tr><td><code>mpc_tok_braces(mpc_parser_t *a, mpc_dtor_t ad);</code></td><td>Matches <code>a</code> between trailing whitespace consumed <code>"<"</code> and <code>">"</code></td></tr>
+  <tr><td><code>mpc_tok_brackets(mpc_parser_t *a, mpc_dtor_t ad);</code></td><td>Matches <code>a</code> between trailing whitespace consumed <code>"{"</code> and <code>"}"</code></td></tr>
+  <tr><td><code>mpc_tok_squares(mpc_parser_t *a, mpc_dtor_t ad);</code></td><td>Matches <code>a</code> between trailing whitespace consumed <code>"["</code> and <code>"]"</code></td></tr>
+</table>
+<h2 id="apply-functions">Apply Functions</h2>
+<table>
+  <tr><td><code>void mpcf_dtor_null(mpc_val_t *x);</code></td><td>Empty destructor. Does nothing</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_ctor_null(void);</code></td><td>Returns <code>NULL</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_ctor_str(void);</code></td><td>Returns <code>""</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_free(mpc_val_t *x);</code></td><td>Frees <code>x</code> and returns <code>NULL</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_int(mpc_val_t *x);</code></td><td>Converts a decimal string <code>x</code> to an <code>int*</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_hex(mpc_val_t *x);</code></td><td>Converts a hex string <code>x</code> to an <code>int*</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_oct(mpc_val_t *x);</code></td><td>Converts a oct string <code>x</code> to an <code>int*</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_float(mpc_val_t *x);</code></td><td>Converts a string <code>x</code> to a <code>float*</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_escape(mpc_val_t *x);</code></td><td>Converts a string <code>x</code> to an escaped version</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_escape_regex(mpc_val_t *x);</code></td><td>Converts a regex <code>x</code> to an escaped version</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_escape_string_raw(mpc_val_t *x);</code></td><td>Converts a raw string <code>x</code> to an escaped version</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_escape_char_raw(mpc_val_t *x);</code></td><td>Converts a raw character <code>x</code> to an escaped version</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_unescape(mpc_val_t *x);</code></td><td>Converts a string <code>x</code> to an unescaped version</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_unescape_regex(mpc_val_t *x);</code></td><td>Converts a regex <code>x</code> to an unescaped version</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_unescape_string_raw(mpc_val_t *x);</code></td><td>Converts a raw string <code>x</code> to an unescaped version</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_unescape_char_raw(mpc_val_t *x);</code></td><td>Converts a raw character <code>x</code> to an unescaped version</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_strtriml(mpc_val_t *x);</code></td><td>Trims whitespace from the left of string <code>x</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_strtrimr(mpc_val_t *x);</code></td><td>Trims whitespace from the right of string <code>x</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_strtrim(mpc_val_t *x);</code></td><td>Trims whitespace from either side of string <code>x</code></td></tr>
+</table>
+<h2 id="fold-functions">Fold Functions</h2>
+<table>
+  <tr><td><code>mpc_val_t *mpcf_null(int n, mpc_val_t** xs);</code></td><td>Returns <code>NULL</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_fst(int n, mpc_val_t** xs);</code></td><td>Returns first element of <code>xs</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_snd(int n, mpc_val_t** xs);</code></td><td>Returns second element of <code>xs</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_trd(int n, mpc_val_t** xs);</code></td><td>Returns third element of <code>xs</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_fst_free(int n, mpc_val_t** xs);</code></td><td>Returns first element of <code>xs</code> and calls <code>free</code> on others</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_snd_free(int n, mpc_val_t** xs);</code></td><td>Returns second element of <code>xs</code> and calls <code>free</code> on others</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_trd_free(int n, mpc_val_t** xs);</code></td><td>Returns third element of <code>xs</code> and calls <code>free</code> on others</td></tr>
+  <tr><td><code>mpc_val_t *mpcf_all_free(int n, mpc_val_t** xs);</code></td><td>Calls <code>free</code> on all elements of <code>xs</code> and returns <code>NULL</code></td></tr>
+  <tr><td><code>mpc_val_t *mpcf_strfold(int n, mpc_val_t** xs);</code></td><td>Concatenates all <code>xs</code> together as strings and returns result </td></tr>
+</table>
+<h1 id="案例研究-数学语言">案例研究 - 数学语言</h1>
+<h2 id="组合子方法-2">组合子方法</h2>
+<p>Passing around all these function pointers might seem clumsy, but having parsers be type-generic is important as it lets users define their own output types for parsers. For example we could design our own syntax tree type to use. We can also use this method to do some specific house-keeping or data processing in the parsing phase.</p>
+<p>As an example of this power, we can specify a simple maths grammar, that outputs <code>int *</code>, and computes the result of the expression as it goes along.</p>
+<p>We start with a fold function that will fold two <code>int *</code> into a new <code>int *</code> based on some <code>char *</code> operator.</p>
+<pre><code class="language-c">mpc_val_t *fold_maths(int n, mpc_val_t **xs) {
+
+  int **vs = (int**)xs;
+
+  if (strcmp(xs[1], &quot;*&quot;) == 0) { *vs[0] *= *vs[2]; }
+  if (strcmp(xs[1], &quot;/&quot;) == 0) { *vs[0] /= *vs[2]; }
+  if (strcmp(xs[1], &quot;%&quot;) == 0) { *vs[0] %= *vs[2]; }
+  if (strcmp(xs[1], &quot;+&quot;) == 0) { *vs[0] += *vs[2]; }
+  if (strcmp(xs[1], &quot;-&quot;) == 0) { *vs[0] -= *vs[2]; }
+
+  free(xs[1]); free(xs[2]);
+
+  return xs[0];
+}
+</code></pre>
+<p>And then we use this to specify a basic grammar, which folds together any results.</p>
+<pre><code class="language-c">mpc_parser_t *Expr   = mpc_new(&quot;expr&quot;);
+mpc_parser_t *Factor = mpc_new(&quot;factor&quot;);
+mpc_parser_t *Term   = mpc_new(&quot;term&quot;);
+mpc_parser_t *Maths  = mpc_new(&quot;maths&quot;);
+
+mpc_define(Expr, mpc_or(2,
+  mpc_and(3, fold_maths,
+    Factor, mpc_oneof(&quot;+-&quot;), Factor,
+    free, free),
+  Factor
+));
+
+mpc_define(Factor, mpc_or(2,
+  mpc_and(3, fold_maths,
+    Term, mpc_oneof(&quot;*/&quot;), Term,
+    free, free),
+  Term
+));
+
+mpc_define(Term, mpc_or(2, mpc_int(), mpc_parens(Expr, free)));
+mpc_define(Maths, mpc_whole(Expr, free));
+
+/* Do Some Parsing... */
+
+mpc_delete(Maths);
+</code></pre>
+<p>If we supply this function with something like <code>(4*2)+5</code>, we can expect it to output <code>13</code>.</p>
+<h2 id="语言方法">语言方法</h2>
+<p>It is possible to avoid passing in and around all those function pointers, if you don't care what type is output by <em>mpc</em>. For this, a generic Abstract Syntax Tree type <code>mpc_ast_t</code> is included in <em>mpc</em>. The combinator functions which act on this don't need information on how to destruct or fold instances of the result as they know it will be a <code>mpc_ast_t</code>. So there are a number of combinator functions which work specifically (and only) on parsers that return this type. They reside under <code>mpca_*</code>.</p>
+<p>Doing things via this method means that all the data processing must take place after the parsing. In many instances this is not an issue, or even preferable.</p>
+<p>It also allows for one more trick. As all the fold and destructor functions are implicit, the user can simply specify the grammar of the language in some nice way and the system can try to build a parser for the AST type from this alone. For this there are a few functions supplied which take in a string, and output a parser. The format for these grammars is simple and familiar to those who have used parser generators before. It looks something like this.</p>
+<pre><code>number &quot;number&quot; : /[0-9]+/ ;
+expression      : &lt;product&gt; (('+' | '-') &lt;product&gt;)* ;
+product         : &lt;value&gt;   (('*' | '/')   &lt;value&gt;)* ;
+value           : &lt;number&gt; | '(' &lt;expression&gt; ')' ;
+maths           : /^/ &lt;expression&gt; /$/ ;
+</code></pre>
+<p>The syntax for this is defined as follows.</p>
+<table class='table'>
+  <tr><td><code>"ab"</code></td><td>The string <code>ab</code> is required.</td></tr>
+  <tr><td><code>'a'</code></td><td>The character <code>a</code> is required.</td></tr>
+  <tr><td><code>'a' 'b'</code></td><td>First <code>'a'</code> is required, then <code>'b'</code> is required..</td></tr>
+  <tr><td><code>'a' | 'b'</code></td><td>Either <code>'a'</code> is required, or <code>'b'</code> is required.</td></tr>
+  <tr><td><code>'a'*</code></td><td>Zero or more <code>'a'</code> are required.</td></tr>
+  <tr><td><code>'a'+</code></td><td>One or more <code>'a'</code> are required.</td></tr>
+  <tr><td><code>'a'?</code></td><td>Zero or one <code>'a'</code> is required.</td></tr>
+  <tr><td><code>'a'{x}</code></td><td>Exactly <code>x</code> (integer) copies of <code>'a'</code> are required.</td></tr>
+  <tr><td><code>&lt;abba&gt;</code></td><td>The rule called <code>abba</code> is required.</td></tr>
+</table>
+<p>Rules are specified by rule name, optionally followed by an <em>expected</em> string, followed by a colon <code>:</code>, followed by the definition, and ending in a semicolon <code>;</code>. Multiple rules can be specified. The <em>rule names</em> must match the names given to any parsers created by <code>mpc_new</code>, otherwise the function will crash.</p>
+<p>The flags variable is a set of flags <code>MPCA_LANG_DEFAULT</code>, <code>MPCA_LANG_PREDICTIVE</code>, or <code>MPCA_LANG_WHITESPACE_SENSITIVE</code>. For specifying if the language is predictive or whitespace sensitive.</p>
+<p>Like with the regular expressions, this user input is parsed by existing parts of the <em>mpc</em> library. It provides one of the more powerful features of the library.</p>
+<hr>
+<pre><code class="language-c">mpc_parser_t *mpca_grammar(int flags, const char *grammar, ...);
+</code></pre>
+<p>This takes in some single right hand side of a rule, as well as a list of any of the parsers referenced, and outputs a parser that does what is specified by the rule. The list of parsers referenced can be terminated with <code>NULL</code> to get an error instead of a crash when a parser required is not supplied.</p>
+<hr>
+<pre><code class="language-c">mpc_err_t *mpca_lang(int flags, const char *lang, ...);
+</code></pre>
+<p>This takes in a full language (zero or more rules) as well as any parsers referred to by either the right or left hand sides. Any parsers specified on the left hand side of any rule will be assigned a parser equivalent to what is specified on the right. On valid user input this returns <code>NULL</code>, while if there are any errors in the user input it will return an instance of <code>mpc_err_t</code> describing the issues. The list of parsers referenced can be terminated with <code>NULL</code> to get an error instead of a crash when a parser required is not supplied.</p>
+<hr>
+<pre><code class="language-c">mpc_err_t *mpca_lang_file(int flags, FILE* f, ...);
+</code></pre>
+<p>This reads in the contents of file <code>f</code> and inputs it into <code>mpca_lang</code>.</p>
+<hr>
+<pre><code class="language-c">mpc_err_t *mpca_lang_contents(int flags, const char *filename, ...);
+</code></pre>
+<p>This opens and reads in the contents of the file given by <code>filename</code> and passes it to <code>mpca_lang</code>.</p>
+<h1 id="案例研究-分词器">案例研究 - 分词器</h1>
+<p>Another common task we might be interested in doing is tokenizing some block of<br>
+text (splitting the text into individual elements) and performing some function<br>
+on each one of these elements as it is read. We can do this with <code>mpc</code> too.</p>
+<p>First, we can build a regular expression which parses an individual token. For<br>
+example if our tokens are identifiers, integers, commas, periods and colons we<br>
+could build something like this <code>mpc_re(&quot;\\s*([a-zA-Z_]+|[0-9]+|,|\\.|:)&quot;)</code>.<br>
+Next we can strip any whitespace, and add a callback function using <code>mpc_apply</code><br>
+which gets called every time this regex is parsed successfully<br>
+<code>mpc_apply(mpc_strip(mpc_re(&quot;\\s*([a-zA-Z_]+|[0-9]+|,|\\.|:)&quot;)), print_token)</code>.<br>
+Finally we can surround all of this in <code>mpc_many</code> to parse it zero or more<br>
+times. The final code might look something like this:</p>
+<pre><code class="language-c">static mpc_val_t *print_token(mpc_val_t *x) {
+  printf(&quot;Token: '%s'\n&quot;, (char*)x);
+  return x;
+}
+
+int main(int argc, char **argv) {
+
+  const char *input = &quot;  hello 4352 ,  \n foo.bar   \n\n  test:ing   &quot;;
+
+  mpc_parser_t* Tokens = mpc_many(
+    mpcf_all_free,
+    mpc_apply(mpc_strip(mpc_re(&quot;\\s*([a-zA-Z_]+|[0-9]+|,|\\.|:)&quot;)), print_token));
+
+  mpc_result_t r;
+  mpc_parse(&quot;input&quot;, input, Tokens, &amp;r);
+
+  mpc_delete(Tokens);
+
+  return 0;
+}
+</code></pre>
+<p>Running this program will produce an output something like this:</p>
+<pre><code>Token: 'hello'
+Token: '4352'
+Token: ','
+Token: 'foo'
+Token: '.'
+Token: 'bar'
+Token: 'test'
+Token: ':'
+Token: 'ing'
+</code></pre>
+<p>By extending the regex we can easily extend this to parse many more types of<br>
+tokens and quickly and easily build a tokenizer for whatever language we are<br>
+interested in.</p>
+<h1 id="错误报告">错误报告</h1>
+<p><em>mpc</em> provides some automatic generation of error messages. These can be enhanced by the user, with use of <code>mpc_expect</code>, but many of the defaults should provide both useful and readable. An example of an error message might look something like this:</p>
+<pre><code>&lt;test&gt;:0:3: error: expected one or more of 'a' or 'd' at 'k'
+</code></pre>
+<h1 id="misc">Misc</h1>
+<p>Here are some other misc functions that mpc provides. These functions are susceptible to change between versions so use them with some care.</p>
+<hr>
+<pre><code class="language-c">void mpc_print(mpc_parser_t *p);
+</code></pre>
+<p>Prints out a parser in some weird format. This is generally used for debugging so don't expect to be able to understand the output right away without looking at the source code a little bit.</p>
+<hr>
+<pre><code class="language-c">void mpc_stats(mpc_parser_t *p);
+</code></pre>
+<p>Prints out some basic stats about a parser. Again used for debugging and optimisation.</p>
+<hr>
+<pre><code class="language-c">void mpc_optimise(mpc_parser_t *p);
+</code></pre>
+<p>Performs some basic optimisations on a parser to reduce it's size and increase its running speed.</p>
+<h1 id="局限性-常见问题解答">局限性 &amp; 常见问题解答</h1>
+<h3 id="mpc支持unicode吗">mpc支持Unicode吗?</h3>
+<p><em>mpc</em> Only supports ASCII. Sorry! Writing a parser library that supports Unicode is pretty difficult. I welcome contributions!</p>
+<h3 id="mpc二进制安全吗">mpc二进制安全吗?</h3>
+<p>不，在字符串或文件内包含<code>NULL</code>字符可能会破坏他，请避免这种情况。</p>
+<h3 id="解析器进入无限循环">解析器进入无限循环！</h3>
+<p>While it is certainly possible there is an issue with <em>mpc</em>, it is probably the case that your grammar contains <em>left recursion</em>. This is something <em>mpc</em> cannot deal with. <em>Left recursion</em> is when a rule directly or indirectly references itself on the left hand side of a derivation. For example consider this left recursive grammar intended to parse an expression.</p>
+<pre><code>expr : &lt;expr&gt; '+' (&lt;expr&gt; | &lt;int&gt; | &lt;string&gt;);
+</code></pre>
+<p>When the rule <code>expr</code> is called, it looks the first rule on the left. This happens to be the rule <code>expr</code> again. So again it looks for the first rule on the left. Which is <code>expr</code> again. And so on. To avoid left recursion this can be rewritten (for example) as the following. Note that rewriting as follows also changes the operator associativity.</p>
+<pre><code>value : &lt;int&gt; | &lt;string&gt; ;
+expr  : &lt;value&gt; ('+' &lt;expr&gt;)* ;
+</code></pre>
+<p>Avoiding left recursion can be tricky, but is easy once you get a feel for it. For more information you can look on <a href="http://en.wikipedia.org/wiki/Left_recursion">wikipedia</a> which covers some common techniques and more examples. Possibly in the future <em>mpc</em> will support functionality to warn the user or re-write grammars which contain left recursion, but it wont for now.</p>
+<h3 id="回溯不起作用">回溯不起作用</h3>
+<p><em>mpc</em> supports backtracking, but it may not work as you expect. It isn't a silver bullet, and you still must structure your grammar to be unambiguous. To demonstrate this behaviour examine the following erroneous grammar, intended to parse either a C style identifier, or a C style function call.</p>
+<pre><code>factor : &lt;ident&gt;
+       | &lt;ident&gt; '('  &lt;expr&gt;? (',' &lt;expr&gt;)* ')' ;
+</code></pre>
+<p>This grammar will never correctly parse a function call because it will always first succeed parsing the initial identifier and return a factor. At this point it will encounter the parenthesis of the function call, give up, and throw an error. Even if it were to try and parse a factor again on this failure it would never reach the correct function call option because it always tries the other options first, and always succeeds with the identifier.</p>
+<p>The solution to this is to always structure grammars with the most specific clause first, and more general clauses afterwards. This is the natural technique used for avoiding left-recursive grammars and unambiguity, so is a good habit to get into anyway.</p>
+<p>Now the parser will try to match a function first, and if this fails backtrack and try to match just an identifier.</p>
+<pre><code>factor : &lt;ident&gt; '('  &lt;expr&gt;? (',' &lt;expr&gt;)* ')'
+       | &lt;ident&gt; ;
+</code></pre>
+<p>An alternative, and better option is to remove the ambiguity completely by factoring out the first identifier. This is better because it removes any need for backtracking at all! Now the grammar is predictive!</p>
+<pre><code>factor : &lt;ident&gt; ('('  &lt;expr&gt;? (',' &lt;expr&gt;)* ')')? ;
+</code></pre>
+<h3 id="如何避免最大字符串字面长度">如何避免最大字符串字面长度。</h3>
+<p>Some compilers limit the maximum length of string literals. If you have a huge language string in the source file to be passed into <code>mpca_lang</code> you might encounter this. The ANSI standard says that 509 is the maximum length allowed for a string literal. Most compilers support greater than this. Visual Studio supports up to 2048 characters, while gcc allocates memory dynamically and so has no real limit.</p>
+<p>There are a couple of ways to overcome this issue if it arises. You could instead use <code>mpca_lang_contents</code> and load the language from file or you could use a string literal for each line and let the preprocessor automatically concatenate them together, avoiding the limit. The final option is to upgrade your compiler. In C99 this limit has been increased to 4095.</p>
+<h3 id="ast中的自动标签很烦人">AST中的自动标签很烦人。</h3>
+<p>When parsing from a grammar, the abstract syntax tree is tagged with different tags for each primitive type it encounters. For example a regular expression will be automatically tagged as <code>regex</code>. Character literals as <code>char</code> and strings as <code>string</code>. This is to help people wondering exactly how they might need to convert the node contents.</p>
+<p>If you have a rule in your grammar called <code>string</code>, <code>char</code> or <code>regex</code>, you may encounter some confusion. This is because nodes will be tagged with (for example) <code>string</code> <em>either</em> if they are a string primitive, <em>or</em> if they were parsed via your <code>string</code> rule. If you are detecting node type using something like <code>strstr</code>, in this situation it might break. One solution to this is to always check that <code>string</code> is the innermost tag to test for string primitives, or to rename your rule called <code>string</code> to something that doesn't conflict.</p>
+<p>Yes it is annoying but its probably not going to change!</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://Xiqiu-li.github.io/post/ji-suan-ji-zu-cheng-yuan-li/">
+              <h3 class="post-title">
+                下一篇：计算机组成原理
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://Xiqiu-li.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '2e451ce0d397e2949463',
+        clientSecret: '3c576796dc4dfe752c01188e4a2cd84899fb16a3',
+        repo: 'talk',
+        owner: 'Xiqiu-li',
+        admin: ['Xiqiu-li'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

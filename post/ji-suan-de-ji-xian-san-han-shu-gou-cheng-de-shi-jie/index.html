@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>计算的极限（三）：函数构成的世界 | Xiqiu&#39;s blog</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1610559238949">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://Xiqiu-li.github.io">
+        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1610559238949" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://Xiqiu-li.github.io">
+        <h1 class="site-title">Xiqiu&#39;s blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">计算的极限（三）：函数构成的世界</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-01-14</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/zhuan-zai/">
+                    转载
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <blockquote>
+<p>计算无处不在。</p>
+<p>走进一个机房，在服务器排成的一道道墙之间，听着风扇的鼓噪，似乎能嗅出0和1在CPU和内存之间不间断的流动。从算筹算盘，到今天的计算机，我们用作计算的工具终于开始量到质的飞跃。计算机能做的事情越来越多，甚至超越了它们的制造者。上个世纪末，深蓝凭借前所未有的搜索和判断棋局的能力，成为第一台战胜人类国际象棋世界冠军的计算机，但它的胜利仍然仰仗于人类大师赋予的丰富国际象棋知识；而仅仅十余年后，Watson却已经能凭借自己的算法，先“理解”问题，然后有的放矢地在海量的数据库中寻找关联的答案。长此以往，工具将必在更多的方面超越它的制造者。而这一切，都来源于越来越精巧的计算。</p>
+<p>计算似乎无所不能，宛如新的上帝。但即使是这位“上帝”，也逃不脱逻辑设定的界限。</p>
+<p>第一位发现这一点的，便是图灵。</p>
+</blockquote>
+<p>《<a href="https://songshuhui.net/archives/tag/%E8%AE%A1%E7%AE%97%E7%9A%84%E6%9E%81%E9%99%90" target="_blank">计算的极限</a>》系列</p>
+<h1>函数构成的世界</h1>
+<figure data-type="image" tabindex="1"><img src="https://Xiqiu-li.github.io/post-images/1610558301060.jpg" alt="" loading="lazy"></figure>
+<p style="text-align: center">【图片来自Wikipedia】</p>
+<p>丘奇作为图灵在数学上的前辈，思考的问题自然比图灵要深远得多。图灵考虑的问题，仅仅是希尔伯特的可判定性问题，而丘奇当时思考的，是如何重构数学的基础。</p>
+<p>当时正是第三次数学危机勃发之际，数学界各路人马对数学基础应该置于何处争论不休。当时公理化集合论刚刚建立，作为新事物，自然有人持观望态度，而丘奇就是其中一位，他觉得自己可以创造一个更好的理论，以此作为数学的基础。与其选择集合与包含这两个概念，他选择了数学中另一个重要的概念：函数。</p>
+<p>数学家眼中的函数，比你想像的要广泛得多。在中学数学中，说到函数，自然会联想起它在平面直角坐标系的图像。这是因为中学数学中的函数，大部分情况下不过是从实数到实数的映射而已。而数学家眼中的函数，可能与程序员眼中的函数更相似：它们更像是一个黑箱，从一边扔进去某个东西，另一边就会吐出来另一个东西。</p>
+<figure data-type="image" tabindex="2"><img src="https://Xiqiu-li.github.io/post-images/1610558328316.jpg" alt="" loading="lazy"></figure>
+<p style="text-align: center">【感谢neko（@iNEKO_mini）提供图片】</p>
+<p>我们并没有限定能扔进黑箱的东西。事实上，将黑箱本身扔进黑箱也是可以的。对这种把戏，数学家们再熟悉不过了，在泛函分析这一数学分支中，数学家们就经常研究一种叫“算子”的数学概念，在某些特殊情况下，就是那些将一个函数变成另一个函数的函数。所以，不去限定能扔进黑箱的东西，似乎也没什么问题。</p>
+<figure data-type="image" tabindex="3"><img src="https://Xiqiu-li.github.io/post-images/1610558353968.jpg" alt="" loading="lazy"></figure>
+<p style="text-align: center">【再次感谢neko（@iNEKO_mini）提供图片】</p>
+<p>总而言之，函数就是将一个函数变成另一个函数的东西。那么，要用符号表达这么普遍的函数概念，我们需要什么呢？</p>
+<p>首先，就像在方程中我们用x, y, z等等符号表示未知数，我们也希望能用符号表示未知函数。我们将这些表示未知函数的符号称为变量。</p>
+<p>其次，如果我们手上有两个函数<span class="MathJax_Preview">\( M \)</span><script type="math/tex"> M </script>和<span class="MathJax_Preview">\( N \)</span><script type="math/tex"> N </script>，那么我们自然希望研究函数<span class="MathJax_Preview">\( N \)</span><script type="math/tex"> N </script>被函数<span class="MathJax_Preview">\( M \)</span><script type="math/tex"> M </script>“处理”之后会变成什么。也就是说，既然<span class="MathJax_Preview">\( M \)</span><script type="math/tex"> M </script>是一个函数，能将一个函数变成另一个函数，那么<span class="MathJax_Preview">\( M \)</span><script type="math/tex"> M </script>会将<span class="MathJax_Preview">\( N \)</span><script type="math/tex"> N </script>这个函数变成什么呢？即使不知道具体的过程，我们也希望能表达最后的结果。所以，我们将<span class="MathJax_Preview">\( N \)</span><script type="math/tex"> N </script>被<span class="MathJax_Preview">\( M \)</span><script type="math/tex"> M </script>处理后得到的结果记为<span class="MathJax_Preview">\( (M \, N) \)</span><script type="math/tex"> (M \, N) </script>。这被称为函数的应用（application）。</p>
+<p>最后，也是最抽象的概念，就是函数的抽象（abstraction）。</p>
+<p>我们可以用变量x来表示未知的函数，自然也可以用x来构造更多的函数。比如<span class="MathJax_Preview">\( (x \, x) \)</span><script type="math/tex"> (x \, x) </script>就表示函数x应用到自己身上的结果，而<span class="MathJax_Preview">\( ((x \, x) \, y) \)</span><script type="math/tex"> ((x \, x) \, y) </script>就表示将刚才得到的结果应用到另一个未知函数y上得到的结果，如此等等，不一而足。如果我们将变量x替换成一个具体的函数f，那么这些包含变量x的表达式就会变成包含具体函数f的表达式。</p>
+<p>也就是说，如果我们有一个包含变量x的表达式<span class="MathJax_Preview">\( M \)</span><script type="math/tex"> M </script>，对于任意一个函数f，我们可以将它对应到一个新的表达式，记作<span class="MathJax_Preview">\( M(f) \)</span><script type="math/tex"> M(f) </script>，而这个新的表达式是将M中的所有x替换成f所得到的。比如说，如果<span class="MathJax_Preview">\( M=(x \, x) \)</span><script type="math/tex"> M=(x \, x) </script>，那么<span class="MathJax_Preview">\( M(f)=(f \, f) \)</span><script type="math/tex"> M(f)=(f \, f) </script>，<span class="MathJax_Preview">\( M((y \, y))=((y \, y) (y \, y)) \)</span><script type="math/tex"> M((y \, y))=((y \, y) (y \, y)) </script>，等等。</p>
+<p>一个表达式也是一个函数。我们从表达式M出发，可以得到把一个函数f对应到另一个函数<span class="MathJax_Preview">\( M(f) \)</span><script type="math/tex"> M(f) </script>的方法，而这正是一个函数。也就是说，我们能从一个表达式“抽象”出一个函数。我们将这个函数记作<span class="MathJax_Preview">\( \lambda x. \, M \)</span><script type="math/tex"> \lambda x. \, M </script>，x是我们所要考虑的自由变量。</p>
+<p>【注：在这里，我们只能替换那些所谓的“自由变量”。粗略地说，自由变量是那些之前没有被抽象过的变量。详细的技术细节略显繁复，而且也有办法绕过，所以于此略过。】</p>
+<p>从这三点基本要求出发，丘奇开始定义他的λ演算。他将他考虑的这些函数称为“λ项”，而所有的λ项都可以从以下三种途径构造而成：</p>
+<p>1. （变量）所有变量<span class="MathJax_Preview">\( x,\, y,\, z,\, \ldots \)</span><script type="math/tex"> x,\, y,\, z,\, \ldots </script>都是λ项。<br/>
+1. （应用）如果<span class="MathJax_Preview">\( M \)</span><script type="math/tex"> M </script>和<span class="MathJax_Preview">\( N \)</span><script type="math/tex"> N </script>都是λ项，那么<span class="MathJax_Preview">\( (M \, N) \)</span><script type="math/tex"> (M \, N) </script>也是λ项。<br/>
+2. （抽象）如果<span class="MathJax_Preview">\( M \)</span><script type="math/tex"> M </script>是一个λ项而x是一个变元，那么<span class="MathJax_Preview">\( \lambda x. \, M \)</span><script type="math/tex"> \lambda x. \, M </script>也是一个λ项。</p>
+<p>接下来，丘奇定义了一些λ项之间的转换法则。</p>
+<p>首先是<span class="MathJax_Preview">\( \alpha \)</span><script type="math/tex"> \alpha </script>重命名，这项转换可以使我们在遵循一定的规则下，任意变换λ项中的变量名称，而不改变λ项本身的意义。也就是说，λ项中变量的名称无关紧要，无论是x, y, z还是苹果、香蕉、榴莲，又或者是小庄、游游、李清晨，项的本质是不变的。</p>
+<p>然后是最重要的<span class="MathJax_Preview">\( \beta \)</span><script type="math/tex"> \beta </script>规约：</p>
+<p><span class="MathJax_Preview">\( (\lambda x. \, M) \, f \; \rightarrow_{\beta} \; M[x \leftarrow f] \)</span><script type="math/tex"> (\lambda x. \, M) \, f \; \rightarrow_{\beta} \; M[x \leftarrow f] </script></p>
+<p>在这里，<span class="MathJax_Preview">\( M[x \leftarrow f] \)</span><script type="math/tex"> M[x \leftarrow f] </script>实际上是<span class="MathJax_Preview">\( M(f) \)</span><script type="math/tex"> M(f) </script>的严谨记法，表明了我们要替换的变量。而<span class="MathJax_Preview">\( \beta \)</span><script type="math/tex"> \beta </script>规约实际上就是根据定义计算函数的一个过程。</p>
+<p>最后，还有一个<span class="MathJax_Preview">\( \eta \)</span><script type="math/tex"> \eta </script>变换。它的实质是所谓的外延性，也就是说，如果两个项对所有函数的作用都是相同的话，那么就认为这两个项是相同的。</p>
+<p>这么几条简单的法则，就是丘奇的λ演算的全部内容。</p>
+<p>那么简单的法则，很难想象λ演算能表达什么复杂的数学概念，这看起来不过是符号的简单推演而已。但既然同样简单的图灵机中也暗藏玄机，那说不定λ演算也有它自己的复杂内涵。</p>
+<figure data-type="image" tabindex="4"><img src="https://Xiqiu-li.github.io/post-images/1610558381117.jpg" alt="" loading="lazy"></figure>
+<p style="text-align: center">【图片来自http://blogs.msdn.com/b/ashleyf】</p>
+<h1>分崩离析的世界</h1>
+<p>丘奇最初建立λ演算的目的，是希望将它作为一种逻辑推理的方法。我们可以将某些逻辑公理表达为λ项；对于某个逻辑命题，我们可以先将其转化为λ项，再根据λ演算的法则将它不断简化，而命题正确与否就蕴含在计算结果之中。</p>
+<p>通过这种方法，丘奇成功地在λ演算的框架下表达了不少的数学系统。λ演算看起来是如此的成功，甚至达到了无所不能的程度。</p>
+<p>但如果我们还记得<a href="https://songshuhui.net/archives/20161" title="希尔伯特之梦，以及梦的破灭" target="_blank">哥德尔的教训</a>的话，无所不能有时并不一定是什么好事，因为在数学和逻辑的领域中，对于有意义的逻辑系统，强大的表达能力必然伴随着坚不可摧的限制。如果一个系统无所不能，那么更大的可能是它本身就自相矛盾。就像一个理论，如果对的也好错的也罢，正面反面都能解释得通，那相当于完全没有解释。</p>
+<p>果然，几乎在丘奇向学术界展示他的λ演算的同时，克林（Kleene）和科里（Curry）就证明了，作为一个逻辑推理系统，λ演算在本质上就存在着矛盾，它是不一致的。通过适当地构造一些λ项，克林和罗瑟（Rosser）成功地利用λ演算找到了一切命题的证明，甚至包括那些错误的命题！一个连错误的命题都能证明的逻辑系统，也就是说一个不一致的逻辑系统，没有任何意义。</p>
+<p>值得一提的是，上面这几位后来都成为了数理逻辑界的大人物。克林和罗瑟是丘奇的学生，而科里则师从希尔伯特。我们后面还会讲到这位科里教授，他的事迹之一就是有整整三个不同的编程语言是以他的名字命名的，连中间名都用上了，影响力可见一斑。</p>
+<p>事实上，丘奇当初在筑建λ演算之时，就已模糊地认识到了这个问题，但他觉得这只是一种幻象，通过某些适当的限制，就能摆脱这些恼人的问题。但丘奇错了，实际上这是一个本质性的问题。</p>
+<p>那么，问题的根源在何处？</p>
+<p>我想，读过本系列之前文章的读者应该都猜到了，又是那绕不过去的自我指涉！</p>
+<div id="attachment_20174" style="width: 426px" class="wp-caption aligncenter">
+<figure data-type="image" tabindex="5"><img src="https://Xiqiu-li.github.io/post-images/1610558474116.jpg" alt="" loading="lazy"></figure>
+<p class="wp-caption-text">自指</p></div>
+<p>但是，自我指涉在什么地方呢？</p>
+<p>还记得λ项是什么东西呢？它的原型是函数，但不是一般的函数。在定义λ项之时，我们允许它将任意的λ项转化为另一个λ项。既然是任意的λ项，那么当然也包括它自己。如果将λ项看成程序的话，那又是一个可以将自己当作输入数据的程序。与图灵机不同的是，在λ演算之中，根本没有数据和程序之分，一切都是λ项，它们既是程序，也是数据。</p>
+<p>λ演算的能力不止于此。考虑所谓的Y组合子：</p>
+<p><span class="MathJax_Preview">\( Y = \lambda x. \, (\lambda y. \, x \, (y \, y)) \, (\lambda y. \, x \, (y \, y)) \)</span><script type="math/tex"> Y = \lambda x. \, (\lambda y. \, x \, (y \, y)) \, (\lambda y. \, x \, (y \, y)) </script></p>
+<p>将它应用到任意一个函数$f$时，我们会得到：</p>
+<p><span class="MathJax_Preview">\( Y f \; = \; (\lambda x. \, (\lambda y. \, x \, (y \, y)) \, (\lambda y. \, x \, (y \, y))) \, f \)</span><script type="math/tex"> Y f \; = \; (\lambda x. \, (\lambda y. \, x \, (y \, y)) \, (\lambda y. \, x \, (y \, y))) \, f </script><br/>
+<span class="MathJax_Preview">\( \rightarrow_{\beta} \; (\lambda y. \, f \, (y \, y)) \, (\lambda y. \, f \, (y \, y)) \)</span><script type="math/tex"> \rightarrow_{\beta} \; (\lambda y. \, f \, (y \, y)) \, (\lambda y. \, f \, (y \, y)) </script><br/>
+<span class="MathJax_Preview">\( \rightarrow_{\beta} \; f \, ((\lambda y. \, f \, (y \, y)) \, (\lambda y. \, f \, (y \, y))) \)</span><script type="math/tex"> \rightarrow_{\beta} \; f \, ((\lambda y. \, f \, (y \, y)) \, (\lambda y. \, f \, (y \, y))) </script><br/>
+<span class="MathJax_Preview">\( = \; f \, (Y \, f) \)</span><script type="math/tex"> = \; f \, (Y \, f) </script></p>
+<p>这样不停替换下去，得到的结果就相当于将函数$f$应用到自身任意多次。λ演算的能力，特别是在自我指涉方面，于此可见一斑。</p>
+<p>正是如此强大的表达能力，使得作为逻辑系统的λ演算一无所能。如果还记得图灵机是怎么在<a href="https://songshuhui.net/archives/75957" title="计算的极限（二）：自我指涉与不可判定" target="_blank">停机问题</a>上失效的话，实际上利用相似的技巧，对于任意的命题，我们可以构造一个λ演算中的证明，无论命题本身是对是错。</p>
+<p>后来Curry的工作在更深刻的意义上揭示了这一点。他概括了λ演算的某些特性，然后证明了对于无论什么逻辑系统，只要它拥有这些特性，那么它必然是不一致的。而这些特性，也恰好是会碍事的那部分自我指涉所需要的。</p>
+<p>于是，作为一个逻辑模型，λ演算一败涂地。</p>
+<p>但丘奇没有就此止步。虽然λ演算不能如他所愿成为数学的推理基础，作为一个计算模型似乎倒也不错。我们可以将一个计算过程看成函数，将输入数据转化为输出数据的函数。于是丘奇将“可有效计算”定义为“可以用λ演算表达的函数”。这时，自我指涉的特性就成为了不可多得的优点，因为这实际上说明λ演算有强大的计算能力。利用自我指涉的特性，通过相似的构造方法，丘奇同样解决了希尔伯特的可判定性问题，得到了与图灵相同的结论。</p>
+<p>丘奇在构想λ演算之时，瞄准的是更为基本的数学基础模型，但它却成为了可计算性的模型，真可谓“无心插柳柳成荫”。这就是图灵看到的那篇论文的由来。</p>
+<p>不难想象图灵当时读到这篇论文时的心情。如果将数学比作攀山，当你千辛万苦登上一座处女峰，却蓦然发现山顶已经插上了别人的旗帜，你大概会觉得一切都似乎失去了意义。</p>
+<p>但数学毕竟不是攀山，不同的路径可能有不同的景致，要论高下为时尚早。况且要比较两者，要先知道两者解决的到底是不是同一个问题。虽然图灵和丘奇解决的都是同一个问题，但他们对“可计算性”各自做了不同的假定。图灵认为“可计算的问题”就是图灵机可以解决的问题，而丘奇则认为那应该是λ演算可以解决的问题。</p>
+<p>问题是，图灵机和λ演算这两个计算模型，它们解决问题的能力一样吗？两种视点下的可计算性，到底是殊途同归，还是貌合神离？</p>
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://Xiqiu-li.github.io/post/ji-suan-de-ji-xian-er-zi-wo-zhi-she-yu-bu-ke-pan-ding/">
+              <h3 class="post-title">
+                下一篇：计算的极限（二）：自我指涉与不可判定
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://Xiqiu-li.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '2e451ce0d397e2949463',
+        clientSecret: '3c576796dc4dfe752c01188e4a2cd84899fb16a3',
+        repo: 'talk',
+        owner: 'Xiqiu-li',
+        admin: ['Xiqiu-li'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
