@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Xiqiu-li.github.io</id>
     <title>Xiqiu&apos;s blog</title>
-    <updated>2021-01-14T16:47:31.219Z</updated>
+    <updated>2021-01-14T17:00:56.891Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Xiqiu-li.github.io"/>
     <link rel="self" href="https://Xiqiu-li.github.io/atom.xml"/>
@@ -133,6 +133,21 @@ Paul Graham在《黑客与画家》中总结了lisp的九条思想</p>
 <p>9. 无论什么时候，整个语言都是可用的。Lisp并不真正区分读取期、编译期和运行期。你可以在读取期编译或运行代码；也可以在编译期读取或运行代码；还可以在运行期读取或者编译代码。</p>
 <p>在读取期运行代码，使得用户可以重新调整（reprogram）Lisp的语法；在编译期运行代码，则是Lisp宏的工作基础；在运行期编译代码，使得Lisp可以在Emacs这样的程序中，充当扩展语言（extension language）；在运行期读取代码，使得程序之间可以用S-表达式（S-expression）通信，近来XML格式的出现使得这个概念被重新&quot;发明&quot;出来了。</p>
 <p>lisp还具有lambda、高阶函数、闭包、惰性求值等思想。</p>
+<h2 id="reference">reference</h2>
+<p><a href="http://daiyuwen.freeshell.org/gb/rol/roots_of_lisp.html">Lisp之根源</a><br>
+<a href="https://my.oschina.net/sukai/blog/1542817">LISP的永恒之道</a><br>
+<a href="https://www.cnblogs.com/lsgxeva/p/10147498.html">scheme 之门</a></p>
+<h2 id="paper">paper</h2>
+<p>λ论文集</p>
+<pre><code>Scheme: An Interpreter for Extended Lambda Calculus，1975年
+Lambda: The Ultimate Imperative，1976年
+Lambda: The Ultimate Declarative，1976年
+Debunking the 'Expensive Procedure Call' Myth, or, Procedure Call Implementations Considered Harmful, or, Lambda: The Ultimate GOTO，1977年
+The Art of the Interpreter or, the Modularity Complex (Parts Zero, One, and Two)，1978年
+RABBIT: A Compiler for SCHEME，1978年
+Design of LISP-based Processors, or SCHEME: A Dielectric LISP, or Finite Memories Considered Harmful, or LAMBDA: The Ultimate Opcode，1979年
+Compiler Optimization Based on Viewing LAMBDA as RENAME + GOTO，1980年
+Design of a Lisp-based Processor，1980年</code></pre>
 ]]></content>
     </entry>
     <entry>
