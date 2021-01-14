@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>计算的极限（八）：符号的框架 | Xiqiu&#39;s blog</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1610594132423">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://Xiqiu-li.github.io">
+        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1610594132423" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://Xiqiu-li.github.io">
+        <h1 class="site-title">Xiqiu&#39;s blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">计算的极限（八）：符号的框架</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-01-14</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/zhuan-zai/">
+                    转载
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <blockquote>
+<p>计算无处不在。</p>
+<p>走进一个机房，在服务器排成的一道道墙之间，听着风扇的鼓噪，似乎能嗅出0和1在CPU和内存之间不间断的流动。从算筹算盘，到今天的计算机，我们用作计算的工具终于开始量到质的飞跃。计算机能做的事情越来越多，甚至超越了它们的制造者。上个世纪末，深蓝凭借前所未有的搜索和判断棋局的能力，成为第一台战胜人类国际象棋世界冠军的计算机，但它的胜利仍然仰仗于人类大师赋予的丰富国际象棋知识；而仅仅十余年后，Watson却已经能凭借自己的算法，先“理解”问题，然后有的放矢地在海量的数据库中寻找关联的答案。长此以往，工具将必在更多的方面超越它的制造者。而这一切，都来源于越来越精巧的计算。</p>
+<p>计算似乎无所不能，宛如新的上帝。但即使是这位“上帝”，也逃不脱逻辑设定的界限。</p>
+<p>第一位发现这一点的，便是图灵。</p>
+</blockquote>
+<p>《<a href="https://songshuhui.net/archives/tag/%E8%AE%A1%E7%AE%97%E7%9A%84%E6%9E%81%E9%99%90" target="_blank">计算的极限</a>》系列</p>
+<p>如果说图灵的经历只是时运不济，那么埃米尔·波斯特（Emil Post）的遭遇只能说是造化弄人。</p>
+<h1>梦想与现实</h1>
+<p>波斯特在1897年出生于当时属于俄罗斯帝国的奥古斯图夫（今属波兰），年幼时就随同家人移民到了美国。与你我之中的许多人一样，波斯特自幼就迷恋着璀璨的星空，一心希望长大后能当个天文学家，研究那些遥不可及的星体，揭露自然之伟力塑造这些巨大结构的法则。这对于一位少年来说，无疑是个珍贵的梦想。</p>
+<div id="attachment_93194" style="width: 610px" class="wp-caption aligncenter"><img class="wp-image-93194 size-large" src="file:///home/adamin/Gridea/post-images/1610590503620.jpg" alt="" width="600" height="375"/><p class="wp-caption-text">拍摄者：P. Calcidese–Fondazione C. Fillietroz, ONLUS/ESO</p></div>
+<p>但13岁时的一场意外，夺去了他的左臂。</p>
+<p>在信息技术发达的今天，天文学家的工作几乎完全在计算机上进行，而各种各样的辅助设施更是让几乎所有人都能便利地使用计算机。但在波斯特的年代，天文观测仍然处于完全机械化的时期，许多观测任务都需要天文学家亲力亲为，曝光、校准、调整，这并不是按几个按钮就能完成的工作，需要捋起袖子动手做。只有一只手，连调整镜筒方向都做不到。尽管残疾的大天文学家并非没有先例，比如说开普勒，但这是例外，并非常态。</p>
+<p>年少的波斯特为此曾写信到哈佛天文台与美国海军天文台。面对少年的来信，两个天文台给出了不同的回复。哈佛天文台的回复像是一种鼓励和安慰：“没有什么理由会阻止你在天文学中出人头地”；而美国海军天文台的回复更加务实直白：“依我之见，失去左臂是你成为职业天文学家的一大障碍。在这个天文台，用仪器观测时必须用到双手”。两种意见都非常合乎情理：少年的梦想应该呵护，但冰冷的现实也不能忽视。选择的权利，仍然掌握在波斯特的手心上。</p>
+<p>他选择了放弃。</p>
+<p>梦想是可贵的，更是昂贵的，尤其在波斯特的时代。放弃未必是错误的选择，关键是放弃之后如何选择。波斯特选择了数学，并且走了下去，走得很远。</p>
+<h1>初试身手</h1>
+<p>在完成高中与大学学业之后，在1917年，波斯特成为了哥伦比亚大学的一名博士生，跟随卡修斯·凯泽（Cassius Keyser）学习。这位凯泽也有过人之处，在当时美国数学界普遍偏向实用的氛围下，他却十分关心欧洲大陆关于数理逻辑的研究，这样的人在当时并不多。这大概因为凯泽自身非常关心哲学，甚至在哲学上也有不少的著作，于是他对于数学哲学与数理逻辑也是爱屋及乌。</p>
+<p>凯泽对数理逻辑的热忱对波斯特影响很大，而那种更广泛的对数学与哲学的热情，可以在波斯特的师兄埃里克·贝尔（Eric Bell）身上看到。贝尔在数学研究上的贡献不大不小，在组合数学中，含有n个元素的集合拆分成子集的方法数被称为贝尔数，也有对应的贝尔多项式，这也许就是他最为人知的数学贡献了。但贝尔对数学的贡献远远超出了他的研究。他写了一本叫《Men of Mathematics》（中文译本叫《数学精英》或者《数学大师》）的书，讲述了众多知名数学家的故事。虽然这本书的描写过分夸张，而且过于关注数学家生活中的戏剧性，因而常常为数学家与数学史研究者所诟病，但这种写法同时也吸引了一代又一代的数学爱好者，有许多著名的数学家在少年时都深受这本书的影响。贝尔给少年带来了数学的梦想，这项贡献甚至比他的研究更重要。</p>
+<div id="attachment_93196" style="width: 610px" class="wp-caption aligncenter"><img class="wp-image-93196 size-large" src="file:///home/adamin/Gridea/post-images/1610590531896.jpg" alt="The Mathematicians" width="600" height="480"/><p class="wp-caption-text">出处：http://angelustenebrae.livejournal.com/15908.html</p></div>
+<p>在凯泽的指引下，波斯特在哥伦比亚大学简直如鱼得水。凯泽开设了一门研讨班，专门研究当时刚刚出版没几年的《数学原理》。这是一套厚厚的三卷本，但对于作者罗素（Bertrand Russell）与怀特黑德（Alfred North Whitehead）的宏大目标——将数学建立在毫无疑义的符号推演的基础上——来说，三卷实在有点薄。证据就是，他们等到第二卷，才证明了“1+1=2”，并且加上了评注：“以上命题有时会有用”（The above proposition is occasionally useful）。</p>
+<p>这本数理逻辑的开山之作，不仅第一次展现了数学家追求确切无误的决心，也是类型论的首次登场。类型论不单是避免矛盾的工具，它触碰了计算的某些本质。那将是一个更颠覆常识的故事，但我们暂且按下不表。波斯特于是也开始研究《数学原理》的内容，作为博士论文的题目。</p>
+<p>可以说，在数理逻辑这条道路上，波斯特一开始几乎是在独自前行。导师凯泽虽然对数理逻辑很有兴趣，但算是半路出家，除此之外，《数学原理》就是波斯特唯一的参照物。可以说，波斯特与丘奇一样，是美国土生土长的数理逻辑学家，他甚至比丘奇早几年进入这个领域，算是前辈。</p>
+<p>三年如白驹过隙，但足以让波斯特深入当时数理逻辑的前沿。在他的博士论文中，他证明了《数学原理》中的命题演算是完备的，也就是说，在该系统内，真等价于可证明。作为逻辑系统，命题演算从属于一阶逻辑，所以波斯特的结果可以说是十年后的哥德尔完备性定理的前奏。</p>
+<p>但波斯特的博士论文，价值远不止于此。</p>
+<p>在《数学原理》中，罗素和怀特黑德殚精竭力建立了一个逻辑体系，这是他们的智力结晶，他们相信这是唯一的体系，所有其他数学都能奠基于此。但作为局外人的波斯特却看不到这种“唯一性”到底从何而来。在他眼中，逻辑体系可以是任意的，不一定要符合什么规则，可以拥有或多或少的代表不同意义的符号，甚至连“真”与“假”的二元对立都可以放弃。在论文的后半段，他研究了这一类“任意的”命题演算甚至是多值逻辑的一致性与完备性。虽然在现代，这种逻辑的自由观念已经深深融入了数理逻辑研究的精神，但在当时，这种想法可以说是开风气之先。</p>
+<p>也许是因为这篇高质量的博士论文，刚毕业的波斯特获得了普林斯顿的垂青。图灵申请了两次才成功的同一份奖学金，波斯特甫一毕业就拿到了手。</p>
+<p>接下来这博士后的一年硕果累累。</p>
+<h1>符号的框架</h1>
+<p>到了普林斯顿，波斯特继续研究一般的逻辑体系。追寻着希尔伯特的想法，他问了相同的问题：对于<strong>任意的</strong>逻辑体系，我们能否判定某个命题是否这个体系的定理呢？</p>
+<p>要回答这个问题，就要先做定义：什么是“逻辑体系”？</p>
+<div id="attachment_93192" style="width: 610px" class="wp-caption aligncenter"><img class="wp-image-93192 size-large" src="file:///home/adamin/Gridea/post-images/1610590563248.jpg" alt="" width="600" height="450"/><p class="wp-caption-text">出处：http://www.cs.nott.ac.uk/~txa/g53cfr/</p></div>
+<p>要知道，逻辑体系种类繁多，从弗雷格电路图一般的“概念文字”，到罗素和怀特黑德的《数学原理》中略显奇异的近代逻辑符号，再到现代一般使用的一阶逻辑，又到更复杂的模态逻辑与线性逻辑，甚至到现代如雨后春笋层出不穷的新逻辑体系，它们无论是符号、意义还是表达范围都千奇百怪，要找到一个能囊括过去、现在甚至未来出现的定义，这无疑是个令人挠头的工作。如果考虑到波斯特当年见过的逻辑体系并没有现在那么多种多样，要去定义“逻辑体系”这个概念，无疑难上加难。</p>
+<p>但数学工作者都习惯了推广各种概念，波斯特也不例外。他的任务，就是从一阶逻辑这个范本出发，找到一种能涵盖一切“逻辑体系”的定义。那么，一个自然的问题就是，当我们在用逻辑体系做推理或者证明的时候，我们到底在干什么？</p>
+<p>我们先从比较简单的系统开始。所谓“一阶直觉主义命题演算”，可能是最简单而有实际意义的逻辑系统。虽然名字的长度和内容都很吓人，但实际上它非常简单。除了表示不同命题的变量之外，它只有三个符号（合取号<span class="MathJax_Preview">\( \land \)</span><script type="math/tex"> \land </script>，析取号 <span class="MathJax_Preview">\( \lor \)</span><script type="math/tex"> \lor </script>与蕴涵号<span class="MathJax_Preview">\( \to \)</span><script type="math/tex"> \to </script>，算上括号就是四个），加上仅仅8条“不言自明”的公理，还有单单一条推理规则：肯定前件规则（Modus ponens）。那些公理并不是什么复杂的东西，不过是将合取（家鸡不是野生动物<strong>而且</strong>炸鸡很好吃）、析取（我想吃云吞<strong>或者</strong>面条，当然云吞面也可以）和蕴涵（<strong>要是</strong>我今晚叫外卖，<strong>那么</strong>晚上就不用洗碗了）这些日常生活中的概念，在符号世界中的表达而已，实际上的确不言自明。而“肯定前件规则”虽然名字同样吓人，但意思很简单：如果我们能推演出命题<span class="MathJax_Preview">\( P \)</span><script type="math/tex"> P </script>与命题<span class="MathJax_Preview">\( P \to Q \)</span><script type="math/tex"> P \to Q </script>（读作“P推出Q”或者“P蕴涵Q”），那么我们就能据此推演出命题<span class="MathJax_Preview">\( Q \)</span><script type="math/tex"> Q </script>。这也是显然的：<strong>要是</strong>我今晚叫外卖，<strong>那么</strong>晚上就不用洗碗；我今晚的确叫了外卖（是云吞面）；从此可以推出，我今晚显然不用洗碗了。可以说，“一阶直觉主义希尔伯特命题演算”这个逻辑系统，其实就是一些日常的概念和规则的一种完全符号化、形式化的表达。</p>
+<p>那么，当我们在使用这个逻辑体系进行数学推理的时候，我们在做什么？如果我们用这个体系证明了某个命题，这个“证明”到底又是什么？</p>
+<p>正如初中几何证明一样，任何证明都要先列出它使用的公理，也就是说，它默认了什么是“真”的命题。然后，我们知道在肯定前件规则中，如果<span class="MathJax_Preview">\( P \)</span><script type="math/tex"> P </script>和<span class="MathJax_Preview">\( P \to Q \)</span><script type="math/tex"> P \to Q </script>都是真的，那么<span class="MathJax_Preview">\( Q \)</span><script type="math/tex"> Q </script>也是真的，所以我们可以推出<span class="MathJax_Preview">\( Q \)</span><script type="math/tex"> Q </script>。那么，只要从公理出发，不停地应用这个规则，因为我们的出发点都是“真命题”，我们通过规则得到的命题也必然是真命题。从真理走向真理，这就是证明，难道不是吗？</p>
+<p><img class="aligncenter size-medium wp-image-93189" src="file:///home/adamin/Gridea/post-images/1610590591781.jpg" alt="" width="300" height="199"/></p>
+<p>的确，一个证明，就是一个从真理走向真理的过程，但这建立于符号的<strong>意义</strong>之上。如果我们不知道这些符号的意义的话，一个证明又是什么？因为我们已经知道一阶直觉主义命题演算实际上只是日常生活的形式化，所以我们能堂堂正正地说那些公理都是真的。但对于一个从来不知道这些符号的意义的人，甚至是几分钟前的我们来说，这些符号、命题、规则又是什么？当我们遇到一个全新的逻辑体系的时候，我们不知道新体系中的符号、命题、规则到底有着什么意义，这时我们又应该如何看待新体系中的一个证明呢？</p>
+<p>不同的逻辑体系有着不同的符号，即使是相同的符号，在不同的体系中也不一定有着相同的意义。如果我们希望找到一个能囊括所有逻辑体系的定义，那么，这个定义中显然不能包含“意义”。但一个剥除了意义的形式体系到底是什么？当“<span class="MathJax_Preview">\( P \)</span><script type="math/tex"> P </script>和<span class="MathJax_Preview">\( P \to Q \)</span><script type="math/tex"> P \to Q </script>可以推演出<span class="MathJax_Preview">\( Q \)</span><script type="math/tex"> Q </script>”的这个规则剥除了它的意义，剩下的又是什么？一个证明，如果剥去它“证明某项真的陈述”的这一重意义，它又是什么？</p>
+<p>但如果将形式证明的意义剥除，剩下的不就仅仅是一些无意义的、盲目的符号推演么？当我们看到<span class="MathJax_Preview">\( P \)</span><script type="math/tex"> P </script>和<span class="MathJax_Preview">\( P \to Q \)</span><script type="math/tex"> P \to Q </script>，我们就能写出<span class="MathJax_Preview">\( Q \)</span><script type="math/tex"> Q </script>，仅此而已。本来这个逻辑体系是为了将日常生活中的推理形式化、精确化而存在的，现在要将“日常生活推理”这一意义抽去，只剩下符号搭成的框架，这不是舍本逐末吗？</p>
+<p>的确，符号搭成的框架本身没有任何意义。但也正因如此，它可以承载任何意义。已有的逻辑体系蕴含着形形色色的意义，未有的逻辑体系可能蕴含着我们现在无法想象的意义。它们唯一的共同点，就是那个符号搭成的框架。公理就是作为起点的，由符号组成的公式；推理规则就是将一些符号串写成另一些符号串的机械规则；证明就是从公理出发，通过推理规则的不断改写，得到一个新公式的过程。如果有<span class="MathJax_Preview">\( P \)</span><script type="math/tex"> P </script>和<span class="MathJax_Preview">\( P \to Q \)</span><script type="math/tex"> P \to Q </script>，就写出<span class="MathJax_Preview">\( Q \)</span><script type="math/tex"> Q </script>，丝毫不需要思考意义。而在另外一个逻辑体系，如果有<span class="MathJax_Preview">\( P \)</span><script type="math/tex"> P </script>和<span class="MathJax_Preview">\( P \to Q \)</span><script type="math/tex"> P \to Q </script>，就写出<span class="MathJax_Preview">\( Q \to P \)</span><script type="math/tex"> Q \to P </script>，这又有何不可？</p>
+<p>这就是波斯特的答案：逻辑体系，不过是由一些符号、变量、起始符号串（公理）以及将这些符号串不断改写的规则（推理规则）。它们没有意义，但可以承载任何意义。通过对它们的研究，即使我们完全不知道某个逻辑体系的意义，也能通过对这些符号以及变换的研究，来得到关于这个逻辑体系的一些结论，比如它的一致性（是否存在一些不能写出的符号串），还有它的完备性（是否存在一个符号串，将它添加到起始符号串中就能改写出所有符号串）。只要研究这种完全形式化的符号系统，就能得出关于最广泛、最一般的逻辑体系的结论，无论它们的意义是什么。</p>
+<div id="attachment_93195" style="width: 610px" class="wp-caption aligncenter"><img class="wp-image-93195 size-large" src="file:///home/adamin/Gridea/post-images/1610590619479.jpg" alt="math_blackboard" width="600" height="326"/><p class="wp-caption-text">作者David Rosenthal，来自http://facpub.stjohns.edu/~rosenthd/</p></div>
+<h1>形式的迷宫</h1>
+<p>波斯特这么想了，也这么做了。他将这种符号改写的规则构成的系统称为“规范形式A”（canonical form A，涵盖了现代所谓的“字符串重写系统”），然后证明了所有取规范形式A的系统都能写成另一种包含更多约束的“规范形式B”。规范形式B允许的改写规则更简单也更弱，但它的“表达能力”与更强大的规范形式A相同。然后，波斯特证明了《数学原理》中的逻辑系统，实际上也能用这个弱得多的规范形式B表达出来，是规范形式B的一个特例。这意味着，做数学需要的推理规则，实际上要比罗素与怀特黑德想象的要简单得多。</p>
+<p>虽然规范形式B很简单，但波斯特觉得它还不够简单，因为它仍然需要有无穷个表示变量的符号。他又定义了另一个“规范形式C”，它只需要有限个符号，但却能表达出规范形式B所表达的一切逻辑体系。在规范形式C中，波斯特又定义了所谓“正则形式”，在正则形式表达的逻辑体系中，只允许一种改写规则：如果符号串的开头是某一串特定的符号，那么将这些符号删去，然后在末尾添加另外一串符号。同样，所有能用规范形式C表达的逻辑体系，都能转化为正则形式。</p>
+<p>我们来看一个正则形式的例子。符号有三个：a和b；起始符号串只有一条：“bb”；而规则仅仅有三条：</p>
+<p>(1) a$ -&gt; $a<br/>
+(2) b$ -&gt; $aba<br/>
+(3) b$ -&gt; $b</p>
+<p>这里，$的意思是剩下的符号串，比如说a$ -&gt; $a，就是说如果开头读到一个a，那么就去掉这个a，然后在符号串末尾加上一个a。如果开头是b，我们可以选择应用第二或者第三条规则，去掉b，然后续上aba或者b。很简单吧？</p>
+<p>那么，通过这些规则，从公理开始，能改写出来的字符串又有哪些呢？</p>
+<p>我们来看一个改写的例子：</p>
+<p>bb -&gt; baba (2)<br/>
+-&gt; abaaba (2)<br/>
+-&gt; baabaa (1)<br/>
+-&gt; aabaab (3)<br/>
+-&gt; abaaba (1)<br/>
+-&gt; baabaa (1)<br/>
+-&gt; aabaaaba (2)<br/>
+-&gt; abaaabaa (1)</p>
+<p>也许你已经察觉到了这个简单的规律。我们注意到，每一条规则左右两边b的数量是相同的，因为公理只有“bb”，所以所有改写得到的符号串必然有两个符号b，它们将其余的a分成了扇段。再仔细观察上面的例子，容易发现两头a的数目加起来恰好是中间一段的a的数目。不难证明，所有可以写出来的符号串，恰好是形如<span class="MathJax_Preview">\( a^m b a^{m+n} b a^{n} \)</span><script type="math/tex"> a^m b a^{m+n} b a^{n} </script>的符号串，其中m与n都是正整数。或者可以说，这个形式系统表达了正整数的加法。很简单吧？</p>
+<p>正则形式也许已经简单得不能再简单了，波斯特认为，这么简单的系统，要判断某个符号串是否能够写出来，看来也不是什么难事吧？但不要忘记，《数学原理》这本三卷本的巨著，它使用的逻辑体系也能归化为正则形式。就像图灵机一样，正则形式看似简单，但能力惊人。</p>
+<p>波斯特甚至猜测，一切能用一个本质上有限的系统生成的符号串组成的集合，必定可以用一个正则形式体系生成；也就是说，正则形式体系涵盖了一切有限的符号生成系统，无论是已知的、未知的、过去的、未来的。这个猜测被称为“波斯特论题”（Post's thesis）。这是一个大胆的猜测，要知道，数学家日常使用的逻辑，也只是一种有限的符号生成系统，只不过我们将这个系统生成的符号串称为“定理”，并且能给它们赋予“真”的意义而已。波斯特的猜测，实际上说的是正则形式体系覆盖了所有可能的数学推理体系。</p>
+<p>这么大胆的猜测，难道不会隐藏着显而易见的问题吗？</p>
+<p>我们可以假定所有考虑的正则形式系统都只有两个符号，因为通过两个符号的二进制组合我们可以表达别的符号。因为正则形式体系非常简单，我们能很容易地用自然数给它们编号，从1、2到无穷。给定某个编号，我们能机械地写出对应的正则形式体系。考虑一个集合D，它的元素是这样的符号串：用二进制的眼光来看，这个符号串对应一个自然数n，而编号为n的正则形式系统无法写出这个符号串。那么，是否存在一个正则形式体系T，它能写出的符号串的集合恰好就是D呢？</p>
+<p>如果这样的T存在的话，它必定对应着一个编号n，而这个编号对应一个符号串S。S不可能属于D，否则按照D的定义，当S属于D时，对应的正则形式体系T必定无法生成S，而T应该写出D中的所有符号串，包括S，矛盾；而S又一定属于D，否则按照D的定义，当S不属于D时，T必定可以写出S，但T不应该写出D以外的任何符号串，包括S，矛盾。无论S是否属于D，引出的都是矛盾。于是，错误必定出现在一开始的假定上，也就是说，必然不存在这样的T，它恰好生成集合D。</p>
+<div id="attachment_93193" style="width: 439px" class="wp-caption aligncenter"><img class="wp-image-93193 size-full" src="file:///home/adamin/Gridea/post-images/1610590650063.png" alt="" width="429" height="425"/><p class="wp-caption-text">来自Wikipedia</p></div>
+<p>记忆力好的读者一定察觉到了，这就是康托尔的对角线法，与图灵所用的如出一辙！</p>
+<p>但如果对于任意的正则形式体系T与字符串S，我们都能证明T能否写出S的话，那么集合D必定可以用一个有限的系统生成，我们只需要针对所有自然数n，考察编号n的正则形式体系是否能写出n对应的字符串，这可以在有限的体系与有限的时间内做到。这又是一对矛盾。我们的论证中，必定有什么地方出了问题。</p>
+<p>我们回过头来看看，这个矛盾用到了什么假设。仔细察看之后，我们能找到两个没有证明的假设：</p>
+<p>假设一：一切本质上有限的系统生成的符号串集合，必定能用某个正则形式体系生成。</p>
+<p>假设二：对于任意的正则形式体系T与符号串S，我们都能在有限时间内知道T能否写出S。</p>
+<p>假设一是波斯特论题，假设二则源于因为我们认为正则形式非常简单。两个假设看上去都很有道理，假设一甚至更大胆一些。但如果将这两个假设放在一起，则不可避免地会导致矛盾。数学是不应该有矛盾的，二者必须择其一，甚至两者都可能是错的。那么，应该先放弃哪一个呢？</p>
+<p>正则形式系统看上去是这么简单，毕竟眼见为实，要证明某个符号串能否写出来，似乎不是什么难事。但“本质上有限的系统”，涵盖的范围非常广阔，而正则形式看上去又那么简单，谁知道会不会有别的什么系统能做到正则形式做不到的事情呢？保险的做法，大概是放弃假设一，保留假设二。</p>
+<p>但波斯特却反其道而行之。在此前对另一种同样简单的符号重写系统——所谓的“标记系统”（tag system）——的研究中，他发现对于很多看上去简单的问题，要找到答案不是那么容易的事。他猜想对于正则形式系统，也许我们原本认为的“简单问题”，实际上非常难解决。这些形式系统，并不像草原那样一览无遗，而更像是由形式操作构成的迷宫。他认为，实际上要放弃的应该是假设二，要保留的反而是他的假设一。</p>
+<p>事实证明，他的选择是正确的。如果你对放弃假设二还有疑问的话，不妨试试以下的正则形式系统：</p>
+<p>aa$ -&gt; $bc<br/>
+ab$ -&gt; $bc<br/>
+bc$ -&gt; $a<br/>
+ca$ -&gt; $aaa<br/>
+cb$ -&gt; $aaa</p>
+<p>如果你能找到一个起始符号串，使得这个形式系统可以写出无穷个不同的符号串的话，我可以保证，你的大名将会留在数学史上。</p>
+<p>但放弃假设二也就相当于断言：存在某个正则形式体系T与符号串S，我们无法在有限时间内证明T能否写出S。可以说，这就是正则形式体系中的某种哥德尔不完备性定理：有些东西，我们不可能知道。</p>
+<p>这是一个伟大的成就，波斯特在哥德尔之前10年就预见到了相似的结论。如果说哥德尔开创了一个新时代，那么波斯特当时则远远超越了时代。</p>
+<p>可惜这个成就，于他而言过于沉重。</p>
+<p><img class="aligncenter size-full wp-image-93191" src="file:///home/adamin/Gridea/post-images/1610590672180.jpg" alt="The_Scream" width="470" height="599"/></p>
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://Xiqiu-li.github.io/post/ji-suan-de-ji-xian-qi-wan-ru-shen-yu/">
+              <h3 class="post-title">
+                下一篇：计算的极限（七）：宛如神谕
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://Xiqiu-li.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '2e451ce0d397e2949463',
+        clientSecret: '3c576796dc4dfe752c01188e4a2cd84899fb16a3',
+        repo: 'talk',
+        owner: 'Xiqiu-li',
+        admin: ['Xiqiu-li'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
