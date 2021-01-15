@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1610643746389">
+<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1610700928894">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://Xiqiu-li.github.io">
-        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1610643746389" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1610700928894" alt="" width="32px" height="32px">
       </a>
       <a href="https://Xiqiu-li.github.io">
         <h1 class="site-title">Xiqiu&#39;s blog</h1>
@@ -94,6 +94,19 @@
           <div class="post-content">
             <p>产生式是POST提出的根据一种规则，计算模型POST机的串替代规则就是产生式。<br>
 写作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>→</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P\to Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span></p>
+<h2 id="产生式与蕴含的区别">产生式与蕴含的区别</h2>
+<p>除逻辑蕴含外，产生式还包括各种操作，规则、变换、算子、函数等。例如，“如果炉温超过上限，则立即关闭风门”是一个产生式，但不是蕴含式。<br>
+蕴含式只能表示精确的知识，而产生式不仅可以表示精确的知识，还可以表示不精确知识。蕴含式的匹配总要求是精确的。产生式匹配可以是精确的，也可以是不精确的，只要按某种算法求出的相似度落在预先指定的范围内就认为是可匹配的。</p>
+<p>产生式的形式描述及语义–巴斯克范式BNF</p>
+<pre><code>符号::=表示“定义为”
+符号|表示“或者是”
+符号[]表示可缺省
+</code></pre>
+<p>&lt;产生式&gt;::= &lt;前提&gt;&lt;结论&gt;</p>
+<p>&lt;前提&gt;::=&lt;简单条件&gt;|&lt;复合条件&gt;</p>
+<p>&lt;结论&gt;::=&lt;事实&gt;|&lt;操作&gt;</p>
+<p>&lt;复合条件&gt;::=&lt;简单条件&gt;AND&lt;简单条件&gt;[AND&lt;简单条件&gt;...|&lt;简单条件&gt;OR&lt;简单条件&gt;]</p>
+<p>&lt;操作&gt;::=&lt;操作名&gt;[(&lt;变元&gt;,...)]</p>
 
           </div>
         </div>

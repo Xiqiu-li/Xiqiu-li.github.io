@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Xiqiu-li.github.io</id>
     <title>Xiqiu&apos;s blog</title>
-    <updated>2021-01-14T17:02:45.796Z</updated>
+    <updated>2021-01-15T08:55:35.508Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Xiqiu-li.github.io"/>
     <link rel="self" href="https://Xiqiu-li.github.io/atom.xml"/>
@@ -21,7 +21,7 @@
 <a href="https://xiqiu-li.github.io/post/shu-dan/">书单</a><br>
 <a href="https://xiqiu-li.github.io/post/linux-ming-ling-xing-gong-ju-list/">linux命令行工具llist</a><br>
 <a href="https://xiqiu-li.github.io/post/markdown/">MarkDown</a><br>
-<a href="">从零实现语言</a></p>
+<a href="https://xiqiu-li.github.io/post/cong-ling-shi-xian-yu-yan/">从零实现语言</a></p>
 <h2 id="转载">转载</h2>
 <p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian/">计算的极限</a><br>
 <a href="https://xiqiu-li.github.io/post/zhai-lu/">摘录</a><br>
@@ -111,6 +111,19 @@ P → Q<br>
         <updated>2021-01-14T13:09:03.000Z</updated>
         <content type="html"><![CDATA[<p>产生式是POST提出的根据一种规则，计算模型POST机的串替代规则就是产生式。<br>
 写作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>→</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P\to Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span></p>
+<h2 id="产生式与蕴含的区别">产生式与蕴含的区别</h2>
+<p>除逻辑蕴含外，产生式还包括各种操作，规则、变换、算子、函数等。例如，“如果炉温超过上限，则立即关闭风门”是一个产生式，但不是蕴含式。<br>
+蕴含式只能表示精确的知识，而产生式不仅可以表示精确的知识，还可以表示不精确知识。蕴含式的匹配总要求是精确的。产生式匹配可以是精确的，也可以是不精确的，只要按某种算法求出的相似度落在预先指定的范围内就认为是可匹配的。</p>
+<p>产生式的形式描述及语义–巴斯克范式BNF</p>
+<pre><code>符号::=表示“定义为”
+符号|表示“或者是”
+符号[]表示可缺省
+</code></pre>
+<p>&lt;产生式&gt;::= &lt;前提&gt;&lt;结论&gt;</p>
+<p>&lt;前提&gt;::=&lt;简单条件&gt;|&lt;复合条件&gt;</p>
+<p>&lt;结论&gt;::=&lt;事实&gt;|&lt;操作&gt;</p>
+<p>&lt;复合条件&gt;::=&lt;简单条件&gt;AND&lt;简单条件&gt;[AND&lt;简单条件&gt;...|&lt;简单条件&gt;OR&lt;简单条件&gt;]</p>
+<p>&lt;操作&gt;::=&lt;操作名&gt;[(&lt;变元&gt;,...)]</p>
 ]]></content>
     </entry>
     <entry>
