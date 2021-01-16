@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>emacs | Xiqiu&#39;s blog</title>
+<title>software | Xiqiu&#39;s blog</title>
 <meta name="description" content="">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,12 +16,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
 
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -84,58 +78,128 @@
 
 
       <div class="content-container">
-        <div class="post-detail">
-          
-          <h2 class="post-title">emacs</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2021-01-07</span>
-            
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="https://Xiqiu-li.github.io/tag/software/">
-                    software
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="https://Xiqiu-li.github.io/tag/bian-ji-qi/">
-                    编辑器
-                    
-                  </a>
-                
-              </span>
-            
-          </div>
-          <div class="post-content">
-            <blockquote>
-<p>Linux下切换capslock和control键<br>
-setxkbmap -option ctrl:swapcaps<br>
-就行了。而且可以把命令放到~/.bashrc中，重复执行并不影响。</p>
-</blockquote>
 
-          </div>
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> software
+          </h2> 
         </div>
 
         
-          <div class="next-post">
-            <a class="purple-link" href="https://Xiqiu-li.github.io/post/html/">
-              <h3 class="post-title">
-                下一篇：HTML
-              </h3>
-            </a>
-          </div>
-          
+<section class="post-item">
+    <div class="content">
+      <a href="https://Xiqiu-li.github.io/post/debian-shi-yong-ji-lu/">
+        <h2 class="post-title">Debian使用记录</h2>
+      </a>
+      <div class="post-abstract">
+        
       </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2021-01-07</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://Xiqiu-li.github.io/tag/software/">
+                software
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://Xiqiu-li.github.io/tag/cao-zuo-xi-tong/">
+                操作系统
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://Xiqiu-li.github.io/tag/linux/">
+                linux
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
 
-      
+<section class="post-item">
+    <div class="content">
+      <a href="https://Xiqiu-li.github.io/post/emacs/">
+        <h2 class="post-title">emacs</h2>
+      </a>
+      <div class="post-abstract">
         
-          <div id="gitalk-container"></div>
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2021-01-07</span>
         
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://Xiqiu-li.github.io/tag/software/">
+                software
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://Xiqiu-li.github.io/tag/bian-ji-qi/">
+                编辑器
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
 
+<section class="post-item">
+    <div class="content">
+      <a href="https://Xiqiu-li.github.io/post/wo-de-ruan-jian-pei-zhi/">
+        <h2 class="post-title">我的软件配置</h2>
+      </a>
+      <div class="post-abstract">
         
-      
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2021-01-06</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://Xiqiu-li.github.io/tag/software/">
+                software
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://Xiqiu-li.github.io/tag/list/">
+                list
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
+  
+</div>
+
+
+      </div>
 
       <div class="site-footer">
   <div class="slogan"></div>
@@ -169,29 +233,6 @@ var app = new Vue({
 })
 
 </script>
-
-
-
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
-
-      var gitalk = new Gitalk({
-        clientID: '2e451ce0d397e2949463',
-        clientSecret: '3c576796dc4dfe752c01188e4a2cd84899fb16a3',
-        repo: 'talk',
-        owner: 'Xiqiu-li',
-        admin: ['Xiqiu-li'],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
-
-      gitalk.render('gitalk-container')
-
-    </script>
-  
-
-  
 
 
 

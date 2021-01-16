@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>scheme的BNF描述 | Xiqiu&#39;s blog</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1610782255124">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://Xiqiu-li.github.io">
+        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1610782255124" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://Xiqiu-li.github.io">
+        <h1 class="site-title">Xiqiu&#39;s blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">scheme的BNF描述</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-01-16</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/bnf-fan-shi/">
+                    BNF范式
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/cheng-xu-yu-yan/">
+                    程序语言
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/scheme/">
+                    scheme
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <h2 id="bnf范式">BNF范式</h2>
+<p>&lt;&gt; :用左右尖括号括起来的成分表示语法构造成分,或称语法单位，为非终结符。<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span> :该符号的左部由右部定义。<br>
+[] :表示方括号内的成分为任选项。<br>
+() :表示圆括号内的成分优先。<br>
+| :或</p>
+<h2 id="scheme">scheme</h2>
+<p>&lt;S表达式&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;原子&gt;|(&lt;S表达式&gt;&lt;SPACE&gt;&lt;S表达式&gt;)<br>
+&lt;SPACE&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&quot; &quot;<br>
+&lt;原子&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字原子&gt;|&lt;符号原子&gt;<br>
+&lt;数字原子&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>[+|-]&lt;无符号定点数&gt;|[+|-]&lt;无符号浮点数&gt;|&lt;逻辑数&gt;<br>
+&lt;无符号定点数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字&gt;|&lt;数字&gt;&lt;无符号定点数&gt;<br>
+&lt;数字&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mi mathvariant="normal">∣</mi><mn>1</mn><mi mathvariant="normal">∣</mi><mn>2</mn><mi mathvariant="normal">∣</mi><mn>3</mn><mi mathvariant="normal">∣</mi><mn>4</mn><mi mathvariant="normal">∣</mi><mn>5</mn><mi mathvariant="normal">∣</mi><mn>6</mn><mi mathvariant="normal">∣</mi><mn>7</mn><mi mathvariant="normal">∣</mi><mn>8</mn><mi mathvariant="normal">∣</mi><mn>9</mn></mrow><annotation encoding="application/x-tex">{0|1|2|3|4|5|6|7|8|9}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">0</span><span class="mord">∣</span><span class="mord">1</span><span class="mord">∣</span><span class="mord">2</span><span class="mord">∣</span><span class="mord">3</span><span class="mord">∣</span><span class="mord">4</span><span class="mord">∣</span><span class="mord">5</span><span class="mord">∣</span><span class="mord">6</span><span class="mord">∣</span><span class="mord">7</span><span class="mord">∣</span><span class="mord">8</span><span class="mord">∣</span><span class="mord">9</span></span></span></span></span><br>
+&lt;无符号浮点数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字&gt;&lt;余浮点数&gt;|.&lt;十进制小数&gt;|e&lt;指数部分&gt;<br>
+&lt;余浮点数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字&gt;&lt;余浮点数&gt;|.&lt;十进制小数&gt;|e&lt;指数部分&gt;|<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span><br>
+&lt;十进制小数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字&gt;&lt;余十进制小数&gt;<br>
+&lt;余十进制小数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>e&lt;指数部分&gt;|&lt;数字&gt;&lt;余十进制小数&gt;|<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span><br>
+&lt;指数部分&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字&gt;&lt;余整指数&gt;|[+|-]&lt;整指数&gt;<br>
+&lt;整指数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字&gt;&lt;余整指数&gt;<br>
+&lt;余整指数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字&gt;&lt;余整指数&gt;|<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span></p>
+<p>&lt;逻辑数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>#T|()</p>
+<p>&lt;符号原子&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>(&lt;字母&gt;|&lt;无()的特殊符号&gt;)|(&lt;字母&gt;&lt;无()的特殊符号&gt;)&lt;无()的任意符号&gt;<br>
+&lt;无()的任意符号&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字&gt;|&lt;字母&gt;|&lt;无()的特殊符号&gt;</p>
+<h2 id="reference">reference</h2>
+<p>[1]布辉,刘冉.LISP语言的特点及其文法的BNF描述[J].福建电脑,2006(10):83-84.</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://Xiqiu-li.github.io/post/index/">
+              <h3 class="post-title">
+                下一篇：Index
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://Xiqiu-li.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '2e451ce0d397e2949463',
+        clientSecret: '3c576796dc4dfe752c01188e4a2cd84899fb16a3',
+        repo: 'talk',
+        owner: 'Xiqiu-li',
+        admin: ['Xiqiu-li'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
