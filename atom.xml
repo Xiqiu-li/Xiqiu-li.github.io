@@ -2,13 +2,78 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Xiqiu-li.github.io</id>
     <title>Xiqiu&apos;s blog</title>
-    <updated>2021-01-16T07:31:00.069Z</updated>
+    <updated>2021-01-16T07:53:11.775Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Xiqiu-li.github.io"/>
     <link rel="self" href="https://Xiqiu-li.github.io/atom.xml"/>
     <logo>https://Xiqiu-li.github.io/images/avatar.png</logo>
     <icon>https://Xiqiu-li.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Xiqiu&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Index]]></title>
+        <id>https://Xiqiu-li.github.io/post/index/</id>
+        <link href="https://Xiqiu-li.github.io/post/index/">
+        </link>
+        <updated>2021-01-16T07:34:23.000Z</updated>
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%AC%94%E8%AE%B0">笔记</a>
+<ul>
+<li><a href="#scheme">scheme</a></li>
+</ul>
+</li>
+<li><a href="#index">index</a></li>
+<li><a href="#%E8%BD%AF%E4%BB%B6%E9%9A%8F%E7%AC%94">软件随笔</a></li>
+<li><a href="#list">list</a></li>
+<li><a href="#%E8%BD%AC%E8%BD%BD">转载</a></li>
+<li><a href="#%E8%AE%AE%E8%AE%BA">议论</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96">其他</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="笔记">笔记</h2>
+<p><a href="https://xiqiu-li.github.io/post/bian-yi-yuan-li/">编译原理</a><br>
+<a href="https://xiqiu-li.github.io/post/ji-suan-ji-zu-cheng-yuan-li/">计算机组成原理</a><br>
+<a href="https://xiqiu-li.github.io/post/bian-ma/">编码</a><br>
+<a href="https://xiqiu-li.github.io/post/shen-ru-li-jie-cao-zuo-xi-tong/">深入理解操作系统</a><br>
+<a href="https://xiqiu-li.github.io/post/chan-sheng-shi/">产生式</a><br>
+<a href="https://xiqiu-li.github.io/post/xiang-ji-shi-yan-suan/">相继式演算</a><br>
+<a href="https://xiqiu-li.github.io/post/bei-ke-lai-bei-lun/">贝克莱悖论</a></p>
+<p><a href="https://xiqiu-li.github.io/post/cheng-xu-yu-yan">程序语言</a><br>
+<a href="https://xiqiu-li.github.io/post/hun-he-bian-cheng">混合编程</a><br>
+<a href="https://xiqiu-li.github.io/post/chez-scheme-yan-du">chez scheme研读</a></p>
+<h3 id="scheme">scheme</h3>
+<p><a href="https://xiqiu-li.github.io/post/lisp-bi-ji/">scheme笔记</a><br>
+<a href="https://xiqiu-li.github.io/post/scheme-de-bnf-miao-shu">scheme的BNF描述</a></p>
+<h2 id="index">index</h2>
+<p><a href="https://xiqiu-li.github.io/post/cong-ling-shi-xian-yu-yan">从零实现语言</a></p>
+<h2 id="软件随笔">软件随笔</h2>
+<p><a href="https://xiqiu-li.github.io/post/debian-shi-yong-ji-lu/">Debian使用记录</a><br>
+<a href="https://xiqiu-li.github.io/post/emacs/">emacs</a></p>
+<h2 id="list">list</h2>
+<p><a href="https://xiqiu-li.github.io/post/wo-de-ruan-jian-pei-zhi/">我的软件配置</a><br>
+<a href="https://xiqiu-li.github.io/post/shu-dan/">书单</a><br>
+<a href="https://xiqiu-li.github.io/post/linux-ming-ling-xing-gong-ju-list/">linux命令行工具llist</a><br>
+<a href="https://xiqiu-li.github.io/post/markdown/">MarkDown</a><br>
+<a href="https://xiqiu-li.github.io/post/cong-ling-shi-xian-yu-yan/">从零实现语言</a><br>
+<a href="https://xiqiu-li.github.io/post/schemelisp-zi-liao/">scheme/lisp资料</a></p>
+<h2 id="转载">转载</h2>
+<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian/">计算的极限</a><br>
+<a href="https://xiqiu-li.github.io/post/zhai-lu/">摘录</a><br>
+<a href="https://xiqiu-li.github.io/post/the-ripley-scroll/">The Ripley Scroll</a><br>
+<a href="https://xiqiu-li.github.io/post/yao-yan-de-fang-shi/">谣言的方式</a><br>
+<a href="https://xiqiu-li.github.io/post/mastodon/">Mastodon</a><br>
+<a href="https://xiqiu-li.github.io/post/xie-yi-er-bu-shi-ping-tai-yan-lun-zi-you-de-ji-zhu-tu-jing/">协议，而不是平台：言论自由的技术途径</a><br>
+<a href="https://xiqiu-li.github.io/post/micro-parser-combinators/">「翻译」Micro Parser Combinators</a></p>
+<h2 id="议论">议论</h2>
+<p><a href="https://xiqiu-li.github.io/post/lun-chuang-zuo/">论创作</a><br>
+<a href="https://xiqiu-li.github.io/post/blog-de-bi-xu-components/">blog的必需components</a></p>
+<h2 id="其他">其他</h2>
+<p><a href="https://xiqiu-li.github.io/post/ming-ci-jie-shi/">名词解释</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[scheme的BNF描述]]></title>
         <id>https://Xiqiu-li.github.io/post/scheme-de-bnf-miao-shu/</id>
@@ -40,64 +105,6 @@
 &lt;无()的任意符号&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字&gt;|&lt;字母&gt;|&lt;无()的特殊符号&gt;</p>
 <h2 id="reference">reference</h2>
 <p>[1]布辉,刘冉.LISP语言的特点及其文法的BNF描述[J].福建电脑,2006(10):83-84.</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Index]]></title>
-        <id>https://Xiqiu-li.github.io/post/index/</id>
-        <link href="https://Xiqiu-li.github.io/post/index/">
-        </link>
-        <updated>2021-01-14T16:26:25.000Z</updated>
-        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E7%AC%94%E8%AE%B0">笔记</a>
-<ul>
-<li><a href="#scheme">scheme</a></li>
-</ul>
-</li>
-<li><a href="#%E8%BD%AF%E4%BB%B6%E9%9A%8F%E7%AC%94">软件随笔</a></li>
-<li><a href="#list">list</a></li>
-<li><a href="#%E8%BD%AC%E8%BD%BD">转载</a></li>
-<li><a href="#%E8%AE%AE%E8%AE%BA">议论</a></li>
-<li><a href="#%E5%85%B6%E4%BB%96">其他</a></li>
-</ul>
-</li>
-</ul>
-</p>
-<h2 id="笔记">笔记</h2>
-<p><a href="https://xiqiu-li.github.io/post/bian-yi-yuan-li/">编译原理</a><br>
-<a href="https://xiqiu-li.github.io/post/ji-suan-ji-zu-cheng-yuan-li/">计算机组成原理</a><br>
-<a href="https://xiqiu-li.github.io/post/bian-ma/">编码</a><br>
-<a href="https://xiqiu-li.github.io/post/shen-ru-li-jie-cao-zuo-xi-tong/">深入理解操作系统</a><br>
-<a href="https://xiqiu-li.github.io/post/chan-sheng-shi/">产生式</a><br>
-<a href="https://xiqiu-li.github.io/post/xiang-ji-shi-yan-suan/">相继式演算</a><br>
-<a href="https://xiqiu-li.github.io/post/bei-ke-lai-bei-lun/">贝克莱悖论</a></p>
-<h3 id="scheme">scheme</h3>
-<p><a href="https://xiqiu-li.github.io/post/lisp-bi-ji/">scheme笔记</a></p>
-<h2 id="软件随笔">软件随笔</h2>
-<p><a href="https://xiqiu-li.github.io/post/debian-shi-yong-ji-lu/">Debian使用记录</a><br>
-<a href="https://xiqiu-li.github.io/post/emacs/">emacs</a></p>
-<h2 id="list">list</h2>
-<p><a href="https://xiqiu-li.github.io/post/wo-de-ruan-jian-pei-zhi/">我的软件配置</a><br>
-<a href="https://xiqiu-li.github.io/post/shu-dan/">书单</a><br>
-<a href="https://xiqiu-li.github.io/post/linux-ming-ling-xing-gong-ju-list/">linux命令行工具llist</a><br>
-<a href="https://xiqiu-li.github.io/post/markdown/">MarkDown</a><br>
-<a href="https://xiqiu-li.github.io/post/cong-ling-shi-xian-yu-yan/">从零实现语言</a><br>
-<a href="https://xiqiu-li.github.io/post/schemelisp-zi-liao/">scheme/lisp资料</a></p>
-<h2 id="转载">转载</h2>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian/">计算的极限</a><br>
-<a href="https://xiqiu-li.github.io/post/zhai-lu/">摘录</a><br>
-<a href="https://xiqiu-li.github.io/post/the-ripley-scroll/">The Ripley Scroll</a><br>
-<a href="https://xiqiu-li.github.io/post/yao-yan-de-fang-shi/">谣言的方式</a><br>
-<a href="https://xiqiu-li.github.io/post/mastodon/">Mastodon</a><br>
-<a href="https://xiqiu-li.github.io/post/xie-yi-er-bu-shi-ping-tai-yan-lun-zi-you-de-ji-zhu-tu-jing/">协议，而不是平台：言论自由的技术途径</a><br>
-<a href="https://xiqiu-li.github.io/post/micro-parser-combinators/">「翻译」Micro Parser Combinators</a></p>
-<h2 id="议论">议论</h2>
-<p><a href="https://xiqiu-li.github.io/post/lun-chuang-zuo/">论创作</a><br>
-<a href="https://xiqiu-li.github.io/post/blog-de-bi-xu-components/">blog的必需components</a></p>
-<h2 id="其他">其他</h2>
-<p><a href="https://xiqiu-li.github.io/post/ming-ci-jie-shi/">名词解释</a></p>
 ]]></content>
     </entry>
     <entry>
