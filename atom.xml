@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Xiqiu-li.github.io</id>
     <title>Xiqiu&apos;s blog</title>
-    <updated>2021-01-16T07:53:11.775Z</updated>
+    <updated>2021-01-16T18:42:54.137Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Xiqiu-li.github.io"/>
     <link rel="self" href="https://Xiqiu-li.github.io/atom.xml"/>
@@ -14,7 +14,7 @@
         <id>https://Xiqiu-li.github.io/post/index/</id>
         <link href="https://Xiqiu-li.github.io/post/index/">
         </link>
-        <updated>2021-01-16T07:34:23.000Z</updated>
+        <updated>2021-01-16T09:06:36.000Z</updated>
         <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
 <li>
 <ul>
@@ -41,6 +41,7 @@
 <a href="https://xiqiu-li.github.io/post/chan-sheng-shi/">产生式</a><br>
 <a href="https://xiqiu-li.github.io/post/xiang-ji-shi-yan-suan/">相继式演算</a><br>
 <a href="https://xiqiu-li.github.io/post/bei-ke-lai-bei-lun/">贝克莱悖论</a></p>
+<p><a href="https://xiqiu-li.github.io/post/hui-bian-bi-ji">汇编笔记</a></p>
 <p><a href="https://xiqiu-li.github.io/post/cheng-xu-yu-yan">程序语言</a><br>
 <a href="https://xiqiu-li.github.io/post/hun-he-bian-cheng">混合编程</a><br>
 <a href="https://xiqiu-li.github.io/post/chez-scheme-yan-du">chez scheme研读</a></p>
@@ -75,6 +76,129 @@
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[深入理解操作系统]]></title>
+        <id>https://Xiqiu-li.github.io/post/shen-ru-li-jie-cao-zuo-xi-tong/</id>
+        <link href="https://Xiqiu-li.github.io/post/shen-ru-li-jie-cao-zuo-xi-tong/">
+        </link>
+        <updated>2021-01-16T09:04:53.000Z</updated>
+        <content type="html"><![CDATA[<p>王垠曾有一篇文章《完全用linux工作》，后来在其他博文中自述当时有情绪过激，文章中使用了未检验可靠性的内容。后来在《unix的缺陷》一文中又提出了unix like类操作系统的一些缺陷（此两篇文章均已删除），并提到了一本名为《Unix 痛恨者手册》的书。且不论这些文章本身的缺陷，《完全用linux工作》可以当成一篇详尽的linux平台软件推荐指南。而《unix的缺陷》一文也确实提到了unix系统三大哲学导致的根本性bug。相似的，《Markdown 的一些问题》一文提到了md的问题，我的计划阅读列表《C陷阱与缺陷》。我相信，了解缺陷有助于更好的使用。</p>
+<blockquote>
+<p>操作系统是另一个稀奇古怪的东西。操作系统吓人的复杂，而且完全没用。它是 Bill Gates 成功向世界推销出去的一个光彩夺目的概念。这可能是世界上出现的最大的骗局。<br><br>
+操作系统对你来说做着绝对的无用功。其实你有这样一些东西就够了：一个叫作磁盘驱动程序的子程序，一个叫什么什么通讯支持的子程序，而在现代社会，操作系统啥也没做。实际上，Windows 花了大量时间在包装层上，或是诸如磁盘管理器这样不相干的东西上。你有了上 G 的磁盘，有了上 M 的内存。世界格局发生了变化，使得操作系统不那么有用了。<br><br>
+那设备支持怎么办？<br><br>
+Chunk: 你对每个设备有一个子程序。那是一个库，而不是操作系统。你需要那个就装载哪个。</p>
+</blockquote>
+<h2 id="reference">reference:</h2>
+<p>完全用linux工作 https://www.cnblogs.com/skyseraph/archive/2010/10/30/1865280.html</p>
+<p>Unix 的缺陷 – 王垠 https://www.xuebuyuan.com/2185760.html</p>
+<p>Linux系统脚本的常见启动顺序 http://www.ha97.com/4118.html</p>
+<p>Linux From Scratch https://linux.cn/thread/2297/1/1</p>
+<p>https://linux.cn/lfs/LFS-BOOK-7.7-systemd/index.html</p>
+<p>Beyond Linux From Scratch https://docs.huihoo.com/lfs/blfs-1.0/index.html</p>
+<p>从按下电源开关到bash提示符 http://users.cecs.anu.edu.au/~okeefe/p2b/chinese/power2bash.html</p>
+<p>为什么还需要一个新的内核？ https://zhuanlan.zhihu.com/p/20012190</p>
+<p>关于微内核的对话 http://www.yinwang.org/blog-cn/2019/08/19/microkernel</p>
+<p>操作系统是个骗局，forth之父访谈 https://blog.codingnow.com/2010/06/masterminds_of_programming_forth.html</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[emacs]]></title>
+        <id>https://Xiqiu-li.github.io/post/emacs/</id>
+        <link href="https://Xiqiu-li.github.io/post/emacs/">
+        </link>
+        <updated>2021-01-16T09:04:30.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>Linux下切换capslock和control键<br>
+setxkbmap -option ctrl:swapcaps<br>
+就行了。而且可以把命令放到~/.bashrc中，重复执行并不影响。</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Debian使用记录]]></title>
+        <id>https://Xiqiu-li.github.io/post/debian-shi-yong-ji-lu/</id>
+        <link href="https://Xiqiu-li.github.io/post/debian-shi-yong-ji-lu/">
+        </link>
+        <updated>2021-01-16T09:04:20.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="gui">GUI</h2>
+<p>KDE</p>
+<p>Gnome</p>
+<p>Xfce</p>
+<h2 id="cli">CLI</h2>
+<p>zshell<br>
+bash默认配置文件为 .bashrc，若修改默认shell为zshell，则使用.zshrc文件为配置文件，文件位于用户文件夹内。</p>
+<h2 id="command">command</h2>
+<p>使用whereis查找软件目录<br>
+使用lsblk查看挂载硬盘<br>
+使用time测试命令执行时间</p>
+<h2 id="network">network</h2>
+<p>dns catch</p>
+<blockquote>
+<p>sudo /etc/init.d/networking restart<br>
+//清除DNS缓存</p>
+</blockquote>
+<blockquote>
+<p>resolvconf -u //更新DNS</p>
+</blockquote>
+<p>nameserver</p>
+<blockquote>
+<p>/etc/resolv.conf  //DNS server 临时缓存</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>sudo apt insatll resolvconf<br>
+/etc/resolvconf/resolv.conf.d/original 长期修改</p>
+</blockquote>
+<h2 id="source">source</h2>
+<blockquote>
+<p>dpkg -S /usr/bin/tee //查看命令所属包<br>
+sudo apt-get source coreutils //下载源码</p>
+</blockquote>
+<h2 id="error">error</h2>
+<p>1.firefox下的中文输入支持问题</p>
+<blockquote>
+<p>将fcitx修改为ibus-rime解决</p>
+</blockquote>
+<p>2.终端下的中文显示问题</p>
+<blockquote>
+<p>仍未解决<br>
+网友方案:genroo-zh的linux-cjktty内核补丁，或Enlightenment的terminology。</p>
+</blockquote>
+<p>3.无线网卡的固件支持问题</p>
+<blockquote>
+<p>按网络教程查看网卡型号，使用apt安装固件</p>
+</blockquote>
+<p>见一人显卡驱动有问题，无法进入GUI<br>
+解决方如下</p>
+<blockquote>
+<p>sudo apt install linux-image-5.9.0-0.bpo.2-amd64 //更新内核<br>
+sudo update-grub //更新grub<br>
+sudo apt install firmware-linux-nonfree //已提前添加特别源<br>
+sudo reboot //重启</p>
+</blockquote>
+<h2 id="reference">reference</h2>
+<p>ipconfig: https://blog.csdn.net/u011857683/article/details/83758503<br>
+Systemd 入门教程：命令篇 http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[汇编笔记]]></title>
+        <id>https://Xiqiu-li.github.io/post/hui-bian-bi-ji/</id>
+        <link href="https://Xiqiu-li.github.io/post/hui-bian-bi-ji/">
+        </link>
+        <updated>2021-01-16T08:43:22.000Z</updated>
+        <content type="html"><![CDATA[<p>编译器gcc<br>
+nasm：x86汇编/反汇编器<br>
+gcc-multilib：交叉编译</p>
+<p>汇编程序文件后缀名.asm</p>
+<pre><code>$ nasm -f elf first.asm -o first.o
+$ gcc -m32 first.o -o first
+</code></pre>
+<h2 id="reference">reference</h2>
+<p><a href="https://www.zhihu.com/column/c_144694924">汇编入门</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[scheme的BNF描述]]></title>
         <id>https://Xiqiu-li.github.io/post/scheme-de-bnf-miao-shu/</id>
         <link href="https://Xiqiu-li.github.io/post/scheme-de-bnf-miao-shu/">
@@ -103,6 +227,31 @@
 <p>&lt;逻辑数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>#T|()</p>
 <p>&lt;符号原子&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>(&lt;字母&gt;|&lt;无()的特殊符号&gt;)|(&lt;字母&gt;&lt;无()的特殊符号&gt;)&lt;无()的任意符号&gt;<br>
 &lt;无()的任意符号&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;数字&gt;|&lt;字母&gt;|&lt;无()的特殊符号&gt;</p>
+<h2 id="函数">函数</h2>
+<p>&lt;S表达式&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;原始函数&gt;|&lt;构造函数&gt;|&lt;谓词函数&gt;|&lt;输出函数&gt;|&lt;控制流程&gt;</p>
+<p>&lt;原始函数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;算术函数&gt;|&lt;求值函数&gt;|&lt;禁止求值函数&gt;|&lt;原始链表构造器&gt;|&lt;原始链表选择器&gt;</p>
+<p>&lt;算术函数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>‘('&lt;算术运算符&gt;|SQRT <SPACE>&lt;S表达式&gt;')'<br>
+&lt;算术运算符&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mi mathvariant="normal">∣</mi><mo>−</mo><mi mathvariant="normal">∣</mi><mo>∗</mo><mi mathvariant="normal">∣</mi><mi mathvariant="normal">/</mi></mrow><annotation encoding="application/x-tex">{+|-|*|/}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">+</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">∣</span><span class="mord">/</span></span></span></span></span><br>
+&lt;求值函数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('EVAL<SPACE>&lt;S表达式&gt;')'<br>
+&lt;禁止求值函数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('QUOTE|<SPACE>'&lt;S表达式&gt;')'<br>
+&lt;原始链表构造器&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('CONS|LIST<SPACE>&lt;参数列表&gt;')'<br>
+&lt;原始链表选择器&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('CAR|CDR<SPACE>&lt;参数&gt;')'<br>
+&lt;参数列表&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;参数&gt;|&lt;参数&gt;&lt;SPACE&gt;&lt;参数列表&gt;<br>
+&lt;参数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>QUOTE|'|<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span>&lt;S表达式&gt;</p>
+<p>&lt;构造函数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;lambda函数&gt;|&lt;自定义函数&gt;<br>
+&lt;lambda函数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('[&lt;符号名&gt;]'('lambda'('&lt;参数列表&gt;')'&lt;S表达式&gt;')'')'<br>
+&lt;符号名&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;符号原子&gt;<br>
+&lt;自定义函数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('define<SPACE>&lt;函数名&gt;<SPACE>&lt;S表达式&gt;')'|'('define<SPACE>'('&lt;函数名&gt;<SPACE>&lt;参数&gt;')'&lt;函数体&gt;)<br>
+&lt;函数体&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;S表达式&gt;</p>
+<p>&lt;谓词函数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('&lt;关系运算符&gt;&lt;SPACE&gt;&lt;S表达式&gt;')'<br>
+&lt;关系运算符&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>eq?|null?|list?|eqv?|equal?|=|&lt;|&gt;|&lt;=|&gt;=|even?|odd?|zero?</p>
+<p>&lt;输出函数&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('display<SPACE>&lt;S表达式&gt;')'|'('newkine')'</p>
+<p>&lt;控制流程&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;双向选择&gt;&lt;多向选择&gt;<br>
+&lt;双向选择&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('if<SPACE>&lt;谓词函数&gt;<SPACE>&lt;then表达式&gt;<SPACE>&lt;else表达式&gt;)<br>
+&lt;then表达式&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;S表达式&gt;<br>
+&lt;else表达式&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>&lt;S表达式&gt;<br>
+&lt;多向选择&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('cond&lt;选择对&gt;['('else<SPACE>&lt;S表达式&gt;<SPACE>|&lt;S表达式&gt;|')']')'<br>
+&lt;选择对&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('&lt;谓词函数&gt;<SPACE>&lt;S表达式&gt;')'|'('&lt;谓词函数&gt;<SPACE>&lt;S表达式&gt;')'&lt;选择对&gt;</p>
 <h2 id="reference">reference</h2>
 <p>[1]布辉,刘冉.LISP语言的特点及其文法的BNF描述[J].福建电脑,2006(10):83-84.</p>
 ]]></content>
@@ -177,159 +326,6 @@ P → Q<br>
 <p>重言式<br>
 又称「永真式」<br>
 矛盾式</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[产生式]]></title>
-        <id>https://Xiqiu-li.github.io/post/chan-sheng-shi/</id>
-        <link href="https://Xiqiu-li.github.io/post/chan-sheng-shi/">
-        </link>
-        <updated>2021-01-14T13:09:03.000Z</updated>
-        <content type="html"><![CDATA[<p>产生式是POST提出的根据一种规则，计算模型POST机的串替代规则就是产生式。<br>
-写作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>→</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P\to Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span></p>
-<h2 id="产生式与蕴含的区别">产生式与蕴含的区别</h2>
-<p>除逻辑蕴含外，产生式还包括各种操作，规则、变换、算子、函数等。例如，“如果炉温超过上限，则立即关闭风门”是一个产生式，但不是蕴含式。<br>
-蕴含式只能表示精确的知识，而产生式不仅可以表示精确的知识，还可以表示不精确知识。蕴含式的匹配总要求是精确的。产生式匹配可以是精确的，也可以是不精确的，只要按某种算法求出的相似度落在预先指定的范围内就认为是可匹配的。</p>
-<p>产生式的形式描述及语义–巴斯克范式BNF</p>
-<pre><code>符号::=表示“定义为”
-符号|表示“或者是”
-符号[]表示可缺省
-</code></pre>
-<p>&lt;产生式&gt;::= &lt;前提&gt;&lt;结论&gt;</p>
-<p>&lt;前提&gt;::=&lt;简单条件&gt;|&lt;复合条件&gt;</p>
-<p>&lt;结论&gt;::=&lt;事实&gt;|&lt;操作&gt;</p>
-<p>&lt;复合条件&gt;::=&lt;简单条件&gt;AND&lt;简单条件&gt;[AND&lt;简单条件&gt;...|&lt;简单条件&gt;OR&lt;简单条件&gt;]</p>
-<p>&lt;操作&gt;::=&lt;操作名&gt;[(&lt;变元&gt;,...)]</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[scheme笔记]]></title>
-        <id>https://Xiqiu-li.github.io/post/lisp-bi-ji/</id>
-        <link href="https://Xiqiu-li.github.io/post/lisp-bi-ji/">
-        </link>
-        <updated>2021-01-14T13:08:46.000Z</updated>
-        <content type="html"><![CDATA[<p>lisp具有著名的七公理（操作符）quote,atom,eq,car,cdr,cons,cond。<br>
-Paul Graham在《黑客与画家》中总结了lisp的九条思想</p>
-<p>1. 条件结构（即&quot;if-then-else&quot;结构）。现在大家都觉得这是理所当然的，但是Fortran I就没有这个结构，它只有基于底层机器指令的goto结构。</p>
-<p>2. 函数也是一种数据类型。在Lisp语言中，函数与整数或字符串一样，也属于数据类型的一种。它有自己的字面表示形式（literal representation），能够储存在变量中，也能当作参数传递。一种数据类型应该有的功能，它都有。</p>
-<p>3. 递归。Lisp是第一种支持递归函数的高级语言。</p>
-<p>4. 变量的动态类型。在Lisp语言中，所有变量实际上都是指针，所指向的值有类型之分，而变量本身没有。复制变量就相当于复制指针，而不是复制它们指向的数据。</p>
-<p>5. 垃圾回收机制。</p>
-<p>6. 程序由表达式（expression）组成。Lisp程序是一些表达式区块的集合，每个表达式都返回一个值。这与Fortran和大多数后来的语言都截然不同，它们的程序由表达式和语句（statement）组成。</p>
-<p>区分表达式和语句，在Fortran I中是很自然的，因为它不支持语句嵌套。所以，如果你需要用数学式子计算一个值，那就只有用表达式返回这个值，没有其他语法结构可用，因为否则就无法处理这个值。</p>
-<p>后来，新的编程语言支持区块结构（block），这种限制当然也就不存在了。但是为时已晚，表达式和语句的区分已经根深蒂固。它从Fortran扩散到Algol语言，接着又扩散到它们两者的后继语言。</p>
-<p>7. 符号（symbol）类型。符号实际上是一种指针，指向储存在哈希表中的字符串。所以，比较两个符号是否相等，只要看它们的指针是否一样就行了，不用逐个字符地比较。</p>
-<p>8. 代码使用符号和常量组成的树形表示法（notation）。</p>
-<p>9. 无论什么时候，整个语言都是可用的。Lisp并不真正区分读取期、编译期和运行期。你可以在读取期编译或运行代码；也可以在编译期读取或运行代码；还可以在运行期读取或者编译代码。</p>
-<p>在读取期运行代码，使得用户可以重新调整（reprogram）Lisp的语法；在编译期运行代码，则是Lisp宏的工作基础；在运行期编译代码，使得Lisp可以在Emacs这样的程序中，充当扩展语言（extension language）；在运行期读取代码，使得程序之间可以用S-表达式（S-expression）通信，近来XML格式的出现使得这个概念被重新&quot;发明&quot;出来了。</p>
-<p>lisp还具有lambda、高阶函数、闭包、惰性求值等思想。</p>
-<h2 id="reference">reference</h2>
-<p><a href="http://daiyuwen.freeshell.org/gb/rol/roots_of_lisp.html">Lisp之根源</a><br>
-<a href="https://my.oschina.net/sukai/blog/1542817">LISP的永恒之道</a><br>
-<a href="https://www.cnblogs.com/lsgxeva/p/10147498.html">scheme 之门</a></p>
-<h2 id="paper">paper</h2>
-<p>λ论文集</p>
-<pre><code>Scheme: An Interpreter for Extended Lambda Calculus，1975年
-Lambda: The Ultimate Imperative，1976年
-Lambda: The Ultimate Declarative，1976年
-Debunking the 'Expensive Procedure Call' Myth, or, Procedure Call Implementations Considered Harmful, or, Lambda: The Ultimate GOTO，1977年
-The Art of the Interpreter or, the Modularity Complex (Parts Zero, One, and Two)，1978年
-RABBIT: A Compiler for SCHEME，1978年
-Design of LISP-based Processors, or SCHEME: A Dielectric LISP, or Finite Memories Considered Harmful, or LAMBDA: The Ultimate Opcode，1979年
-Compiler Optimization Based on Viewing LAMBDA as RENAME + GOTO，1980年
-Design of a Lisp-based Processor，1980年</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[计算的极限]]></title>
-        <id>https://Xiqiu-li.github.io/post/ji-suan-de-ji-xian/</id>
-        <link href="https://Xiqiu-li.github.io/post/ji-suan-de-ji-xian/">
-        </link>
-        <updated>2021-01-13T16:33:00.000Z</updated>
-        <content type="html"><![CDATA[<p>计算的极限系列原本是由<a href="https://songshuhui.net/archives/author/fwjmath/">方弦</a>发表在<a href="songshuhui.net">松鼠会</a>的一系列文章，但松鼠会网站因不明原因以无法访问，因此将在此转载此系列文章。</p>
-<h2 id="转载">转载</h2>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-ling-luo-ji-yu-tu-ling-ji/">计算的极限（零）：逻辑与图灵机</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-yi-suo-you-ji-qi-de-ji-qi-yu-wu-fa-ji-suan-de-wen-ti/">计算的极限（一）：所有机器的机器，与无法计算的问题</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-er-zi-wo-zhi-she-yu-bu-ke-pan-ding/">计算的极限（二）：自我指涉与不可判定</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-san-han-shu-gou-cheng-de-shi-jie/">计算的极限（三）：函数构成的世界</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-si-ji-jie-ji-suan-de-gui-nie/">计算的极限（四）：机械计算的圭臬</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-wu-you-xian-de-zhang-bi/">计算的极限（五）：有限的障壁</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-liu-wu-qiong-de-bi-an/">计算的极限（六）：无穷的彼岸</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-qi-wan-ru-shen-yu/">计算的极限（七）：宛如神谕</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-ba-fu-hao-de-kuang-jia/">计算的极限（八）：符号的框架</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-jiu-tan-xi-yu-fen-dou/">计算的极限（九）：叹息与奋斗</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-shi-wu-xian-mian-yan-de-ceng-ji/">计算的极限（十）：无限绵延的层级</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-shi-yi-huang-jin-shi-dai/">计算的极限（十一）：黄金时代</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-shi-er-bu-hui-chu-cuo-de-cheng-xu/">计算的极限（十二）：不会出错的程序</a></p>
-<p><a href="https://xiqiu-li.github.io/post/ji-suan-de-ji-xian-shi-san-shu-zi-kong-jian-de-you-ling/">计算的极限（十三）：数字空间的幽灵</a></p>
-<h2 id="原始链接">原始链接</h2>
-<p><a href="https://songshuhui.net/archives/70194">计算的极限（零）：逻辑与图灵机</a></p>
-<p><a href="https://songshuhui.net/archives/75175">计算的极限（一）：所有机器的机器，与无法计算的问题</a></p>
-<p><a href="https://songshuhui.net/archives/75957">计算的极限（二）：自我指涉与不可判定</a></p>
-<p><a href="https://songshuhui.net/archives/80229">计算的极限（三）：函数构成的世界</a></p>
-<p><a href="https://songshuhui.net/archives/85861">计算的极限（四）：机械计算的圭臬</a></p>
-<p><a href="https://songshuhui.net/archives/89734">计算的极限（五）：有限的障壁</a></p>
-<p><a href="https://songshuhui.net/archives/90745">计算的极限（六）：无穷的彼岸</a></p>
-<p><a href="https://songshuhui.net/archives/92392">计算的极限（七）：宛如神谕</a></p>
-<p><a href="https://songshuhui.net/archives/93188">计算的极限（八）：符号的框架</a></p>
-<p><a href="https://songshuhui.net/archives/93245">计算的极限（九）：叹息与奋斗</a></p>
-<p><a href="https://songshuhui.net/archives/93311">计算的极限（十）：无限绵延的层级</a></p>
-<p><a href="https://songshuhui.net/archives/93368">计算的极限（十一）：黄金时代</a></p>
-<p><a href="https://songshuhui.net/archives/93698">计算的极限（十二）：不会出错的程序</a></p>
-<p><a href="https://songshuhui.net/archives/97690">计算的极限（十三）：数字空间的幽灵</a></p>]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MarkDown]]></title>
-        <id>https://Xiqiu-li.github.io/post/markdown/</id>
-        <link href="https://Xiqiu-li.github.io/post/markdown/">
-        </link>
-        <updated>2021-01-13T01:58:26.000Z</updated>
-        <content type="html"><![CDATA[<p>markdown可以和html混合使用<br>
-一个很重要的教程是<a href="https://www.w3school.com.cn/">w3school</a></p>
-<p>MarkDown输入数学符号<br>
-Mathjax<br>
-输入<code>$…$</code>显示Latex，<code>$$…$$</code>单独显示。<br>
-<code>\Gamma</code>显示为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Γ</mi></mrow><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Γ</span></span></span></span><br>
-<code>$x_{3^2}$</code>显示为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><msup><mn>3</mn><mn>2</mn></msup></msub></mrow><annotation encoding="application/x-tex">x_{3^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6081799999999999em;vertical-align:-0.17762em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.52238em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463142857142857em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.17762em;"><span></span></span></span></span></span></span></span></span></span></p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>=</mo><msup><mi>b</mi><mn>2</mn></msup><mo>+</mo><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">a^2 = b^2 + c^2
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.9474379999999999em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></p>
-<p class='katex-block katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;&amp;&#039; at position 4: A  &amp;̲ \to  B \tag{规则…'>A  &amp; \to  B \tag{规则1} \\
-&amp; a \tag{规则2} \\
-</p>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<p><strong>粗体</strong><br>
-<strong>粗体</strong><br>
-<em>斜体</em><br>
-<em>斜体</em><br>
-<em><strong>粗斜</strong></em></p>
-<blockquote>
-<p>块引用</p>
-</blockquote>
-<blockquote>
-<p>连续块</p>
-</blockquote>
-<pre><code>&lt;html&gt;
-    &lt;head&gt;
-     代码块
-    &lt;/head&gt;
-&lt;/html&gt;
-</code></pre>
-<p>分割线</p>
-<hr>
-<hr>
-<hr>
-<p>超链接<a href="https://markdown.com.cn" title="最好的markdown教程">Markdown语法</a></p>
-<p>引用MarkDown语法<a href="https://markdown.com.cn/basic-syntax/links.html">1</a></p>
-<p>图片</p>
-<figure data-type="image" tabindex="1"><img src="/assets/img/philly-magic-garden.jpg" alt="这是图片" title="Magic Gardens" loading="lazy"></figure>
-<h2 id="reference">reference</h2>
-<p><a href="http://www.yinwang.org/blog-cn/2013/04/14/markdown">Markdown 的一些问题</a></p>
 ]]></content>
     </entry>
 </feed>
