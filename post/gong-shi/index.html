@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>Debian使用记录 | Xiqiu&#39;s blog</title>
+<title>公式 | Xiqiu&#39;s blog</title>
 <meta name="description" content="">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -80,104 +80,29 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">Debian使用记录</h2>
+          <h2 class="post-title">公式</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2021-01-16 17:04:20</span>
-            
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="https://Xiqiu-li.github.io/tag/software/">
-                    software
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="https://Xiqiu-li.github.io/tag/cao-zuo-xi-tong/">
-                    操作系统
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="https://Xiqiu-li.github.io/tag/linux/">
-                    linux
-                    
-                  </a>
-                
-              </span>
+            <span><i class="icon-calendar-outline"></i> 2021-01-17 21:19:40</span>
             
           </div>
           <div class="post-content">
-            <h2 id="gui">GUI</h2>
-<p>KDE</p>
-<p>Gnome</p>
-<p>Xfce</p>
-<h2 id="cli">CLI</h2>
-<p>zshell<br>
-bash默认配置文件为 .bashrc，若修改默认shell为zshell，则使用.zshrc文件为配置文件，文件位于用户文件夹内。</p>
-<h2 id="command">command</h2>
-<p>使用whereis查找软件目录<br>
-使用lsblk查看挂载硬盘<br>
-使用time测试命令执行时间</p>
-<h2 id="network">network</h2>
-<p>dns catch</p>
-<blockquote>
-<p>sudo /etc/init.d/networking restart<br>
-//清除DNS缓存</p>
-</blockquote>
-<blockquote>
-<p>resolvconf -u //更新DNS</p>
-</blockquote>
-<p>nameserver</p>
-<blockquote>
-<p>/etc/resolv.conf  //DNS server 临时缓存</p>
-</blockquote>
-<p>或者</p>
-<blockquote>
-<p>sudo apt insatll resolvconf<br>
-/etc/resolvconf/resolv.conf.d/original 长期修改</p>
-</blockquote>
-<h2 id="source">source</h2>
-<blockquote>
-<p>dpkg -S /usr/bin/tee //查看命令所属包<br>
-sudo apt-get source coreutils //下载源码</p>
-</blockquote>
-<h2 id="error">error</h2>
-<p>1.firefox下的中文输入支持问题</p>
-<blockquote>
-<p>将fcitx修改为ibus-rime解决</p>
-</blockquote>
-<p>2.终端下的中文显示问题</p>
-<blockquote>
-<p>仍未解决<br>
-网友方案:genroo-zh的linux-cjktty内核补丁，或Enlightenment的terminology。</p>
-</blockquote>
-<p>3.无线网卡的固件支持问题</p>
-<blockquote>
-<p>按网络教程查看网卡型号，使用apt安装固件</p>
-</blockquote>
-<p>见一人显卡驱动有问题，无法进入GUI<br>
-解决方如下</p>
-<blockquote>
-<p>sudo apt install linux-image-5.9.0-0.bpo.2-amd64 //更新内核<br>
-sudo update-grub //更新grub<br>
-sudo apt install firmware-linux-nonfree //已提前添加特别源<br>
-sudo reboot //重启</p>
-</blockquote>
-<h2 id="reference">reference</h2>
-<p>ipconfig: https://blog.csdn.net/u011857683/article/details/83758503<br>
-Systemd 入门教程：命令篇 http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html</p>
+            <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: No such environment: equation at position 7: \begin{̲e̲q̲u̲a̲t̲i̲o̲n̲}̲\begin{split}
+H…'>\begin{equation}\begin{split}
+H(Y|X)&amp;=\sum_{x\in X} p(x)H(Y|X)\\
+&amp;=-\sum_{x\in X} p(x)\sum_{y\in Y}p(y|x)\log p(y|x)\\
+&amp;=-\sum_{x\in X} \sum_{y\in Y}p(y,x)\log p(y|x)
+\end{split}\end{equation}
+</p>
 
           </div>
         </div>
 
         
           <div class="next-post">
-            <a class="purple-link" href="https://Xiqiu-li.github.io/post/hui-bian-bi-ji/">
+            <a class="purple-link" href="https://Xiqiu-li.github.io/post/index/">
               <h3 class="post-title">
-                下一篇：汇编笔记
+                下一篇：Index
               </h3>
             </a>
           </div>
