@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>议论 | Xiqiu&#39;s blog</title>
+<title>浏览器设置 | Xiqiu&#39;s blog</title>
 <meta name="description" content="">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,6 +16,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -72,74 +78,54 @@
 
 
       <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">浏览器设置</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-01-23 22:05:25</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/dai-wan-shan/">
+                    待完善
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://Xiqiu-li.github.io/tag/software/">
+                    software
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>forefox浏览器可以设置代理以及不通过代理的网址。写代理规则时url使用<code>,</code>英文分号分隔，不能写<code>http://</code>不能换行，可以使用通配符批量匹配。PAC则在对应程序中使用。具体OSI分成有待进一步研究。</p>
 
-        <div class="current-tag-container">
-          <h2 class="title">
-            <i class="icon icon-pricetags-outline"></i> 议论
-          </h2> 
+          </div>
         </div>
 
         
-<section class="post-item">
-    <div class="content">
-      <a href="https://Xiqiu-li.github.io/post/lun-chuang-zuo/">
-        <h2 class="post-title">论创作</h2>
-      </a>
-      <div class="post-abstract">
-        
+          <div class="next-post">
+            <a class="purple-link" href="https://Xiqiu-li.github.io/post/bian-yi-cheng-xu/">
+              <h3 class="post-title">
+                下一篇：编译程序
+              </h3>
+            </a>
+          </div>
+          
       </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2021-01-06 22:11:48</span>
-        
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://Xiqiu-li.github.io/tag/yi-lun/">
-                议论
-                
-              </a>
-            
-          </span>
-        
-      </div>
-    </div>
-    
-  </section>
 
-<section class="post-item">
-    <div class="content">
-      <a href="https://Xiqiu-li.github.io/post/blog-de-bi-xu-components/">
-        <h2 class="post-title"> blog的必需components</h2>
-      </a>
-      <div class="post-abstract">
+      
         
-      </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2021-01-06 22:06:15</span>
+          <div id="gitalk-container"></div>
         
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://Xiqiu-li.github.io/tag/yi-lun/">
-                议论
-                
-              </a>
-            
-          </span>
+
         
-      </div>
-    </div>
-    
-  </section>
-
-
-<div class="pagination-container">
-  
-  
-</div>
-
-
-      </div>
+      
 
       <div class="site-footer">
   <div class="slogan"></div>
@@ -173,6 +159,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '2e451ce0d397e2949463',
+        clientSecret: '3c576796dc4dfe752c01188e4a2cd84899fb16a3',
+        repo: 'talk',
+        owner: 'Xiqiu-li',
+        admin: ['Xiqiu-li'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
