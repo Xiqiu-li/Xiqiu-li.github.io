@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Xiqiu-li.github.io</id>
     <title>Xiqiu&apos;s blog</title>
-    <updated>2021-01-23T14:13:51.896Z</updated>
+    <updated>2021-01-26T05:52:05.854Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Xiqiu-li.github.io"/>
     <link rel="self" href="https://Xiqiu-li.github.io/atom.xml"/>
@@ -83,7 +83,12 @@
         <link href="https://Xiqiu-li.github.io/post/liu-lan-qi-she-zhi/">
         </link>
         <updated>2021-01-23T14:05:25.000Z</updated>
-        <content type="html"><![CDATA[<p>forefox浏览器可以设置代理以及不通过代理的网址。写代理规则时url使用<code>,</code>英文分号分隔，不能写<code>http://</code>不能换行，可以使用通配符批量匹配。PAC则在对应程序中使用。具体OSI分成有待进一步研究。</p>
+        <content type="html"><![CDATA[<h2 id="身份标签页">身份标签页</h2>
+<p>about:config 中设置 privacy.userContext.enabled 为 true 来启用身份标签页功能，可以使用不同的身份标签页隔离不同的cookie完成多帐号登录</p>
+<h2 id="密码管理">密码管理</h2>
+<p>浏览器本身不对密码进行统一加密，虽然有1password等插件，但推荐使用KeePassXC统一管理。</p>
+<h2 id="代理设置">代理设置</h2>
+<p>forefox浏览器可以设置代理以及不通过代理的网址。写代理规则时url使用<code>,</code>英文分号分隔，不能写<code>http://</code>不能换行，可以使用通配符批量匹配。PAC则在对应程序中使用。具体OSI分层有待进一步研究。</p>
 ]]></content>
     </entry>
     <entry>
