@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Xiqiu-li.github.io</id>
     <title>Xiqiu&apos;s blog</title>
-    <updated>2021-01-26T05:52:05.854Z</updated>
+    <updated>2021-01-27T13:43:06.032Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Xiqiu-li.github.io"/>
     <link rel="self" href="https://Xiqiu-li.github.io/atom.xml"/>
@@ -18,12 +18,12 @@
         <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
 <li>
 <ul>
+<li><a href="#index">index</a></li>
 <li><a href="#%E7%AC%94%E8%AE%B0">笔记</a>
 <ul>
 <li><a href="#scheme">scheme</a></li>
 </ul>
 </li>
-<li><a href="#index">index</a></li>
 <li><a href="#%E8%BD%AF%E4%BB%B6%E9%9A%8F%E7%AC%94">软件随笔</a></li>
 <li><a href="#list">list</a></li>
 <li><a href="#%E8%BD%AC%E8%BD%BD">转载</a></li>
@@ -33,6 +33,9 @@
 </li>
 </ul>
 </p>
+<h2 id="index">index</h2>
+<p><a href="https://xiqiu-li.github.io/post/cong-ling-shi-xian-yu-yan">从零实现语言</a><br>
+<a href="https://xiqiu-li.github.io/post/shu-dan/">书单</a></p>
 <h2 id="笔记">笔记</h2>
 <p><a href="https://xiqiu-li.github.io/post/bian-yi-yuan-li/">编译原理</a><br>
 <a href="https://xiqiu-li.github.io/post/ji-suan-ji-zu-cheng-yuan-li/">计算机组成原理</a><br>
@@ -49,15 +52,12 @@
 <h3 id="scheme">scheme</h3>
 <p><a href="https://xiqiu-li.github.io/post/lisp-bi-ji/">scheme笔记</a><br>
 <a href="https://xiqiu-li.github.io/post/scheme-de-bnf-miao-shu">scheme的BNF描述</a></p>
-<h2 id="index">index</h2>
-<p><a href="https://xiqiu-li.github.io/post/cong-ling-shi-xian-yu-yan">从零实现语言</a></p>
 <h2 id="软件随笔">软件随笔</h2>
 <p><a href="https://xiqiu-li.github.io/post/debian-shi-yong-ji-lu/">Debian使用记录</a><br>
 <a href="https://xiqiu-li.github.io/post/emacs/">emacs</a><br>
 <a href="https://xiqiu-li.github.io/post/liu-lan-qi-she-zhi">浏览器设置</a></p>
 <h2 id="list">list</h2>
 <p><a href="https://xiqiu-li.github.io/post/wo-de-ruan-jian-pei-zhi/">我的软件配置</a><br>
-<a href="https://xiqiu-li.github.io/post/shu-dan/">书单</a><br>
 <a href="https://xiqiu-li.github.io/post/linux-ming-ling-xing-gong-ju-list/">linux命令行工具llist</a><br>
 <a href="https://xiqiu-li.github.io/post/markdown/">MarkDown</a><br>
 <a href="https://xiqiu-li.github.io/post/cong-ling-shi-xian-yu-yan/">从零实现语言</a><br>
@@ -75,6 +75,47 @@
 <a href="https://xiqiu-li.github.io/post/blog-de-bi-xu-components/">blog的必需components</a></p>
 <h2 id="其他">其他</h2>
 <p><a href="https://xiqiu-li.github.io/post/ming-ci-jie-shi/">名词解释</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[书单]]></title>
+        <id>https://Xiqiu-li.github.io/post/shu-dan/</id>
+        <link href="https://Xiqiu-li.github.io/post/shu-dan/">
+        </link>
+        <updated>2049-12-31T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%9C%AA%E5%88%86%E7%B1%BB">未分类</a></li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA">计算机</a></li>
+<li><a href="#%E6%95%B0%E5%AD%A6">数学</a></li>
+<li><a href="#%E5%B0%8F%E8%AF%B4">小说</a>
+<ul>
+<li><a href="#%E7%A7%91%E5%B9%BB">科幻</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B7%B2%E8%AF%BB">已读</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="未分类">未分类</h2>
+<p>GEB<br>
+我是个怪圈<br>
+语言与数学<br>
+当代数学 为了人类心智的荣耀</p>
+<h2 id="计算机">计算机</h2>
+<p>Unix痛恨者手册<br>
+C的陷阱与缺陷</p>
+<h2 id="数学">数学</h2>
+<p>同构</p>
+<h2 id="小说">小说</h2>
+<p>哈扎尔辞典</p>
+<h3 id="科幻">科幻</h3>
+<p>银河系漫游指南<br>
+牛津时间旅行：末日之书</p>
+<h2 id="已读">已读</h2>
+<p>真名实姓</p>
 ]]></content>
     </entry>
     <entry>
@@ -353,22 +394,6 @@ $ gcc -m32 first.o -o first
 &lt;选择对&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>:</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">:=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span>'('&lt;谓词函数&gt;<SPACE>&lt;S表达式&gt;')'|'('&lt;谓词函数&gt;<SPACE>&lt;S表达式&gt;')'&lt;选择对&gt;</p>
 <h2 id="reference">reference</h2>
 <p>[1]布辉,刘冉.LISP语言的特点及其文法的BNF描述[J].福建电脑,2006(10):83-84.</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[计算理论和模型]]></title>
-        <id>https://Xiqiu-li.github.io/post/ji-suan-li-lun-he-mo-xing/</id>
-        <link href="https://Xiqiu-li.github.io/post/ji-suan-li-lun-he-mo-xing/">
-        </link>
-        <updated>2021-01-14T16:22:34.000Z</updated>
-        <content type="html"><![CDATA[<p>一个图灵机是一个七元组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">（</mi><mi>Q</mi><mi mathvariant="normal">，</mi><mo>∑</mo><mi mathvariant="normal">，</mi><mi>σ</mi><mi mathvariant="normal">，</mi><mi>δ</mi><mi mathvariant="normal">，</mi><msub><mi>q</mi><mn>0</mn></msub><mi mathvariant="normal">，</mi><msub><mi>q</mi><mrow><mi>a</mi><mi>c</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi></mrow></msub><mi mathvariant="normal">，</mi><msub><mi>q</mi><mrow><mi>r</mi><mi>e</mi><mi>j</mi><mi>e</mi><mi>c</mi><mi>t</mi></mrow></msub><mi mathvariant="normal">）</mi></mrow><annotation encoding="application/x-tex">（Q，∑，σ，δ，q_0，q_{accept}，q_{reject}）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord cjk_fallback">（</span><span class="mord mathdefault">Q</span><span class="mord cjk_fallback">，</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord cjk_fallback">，</span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span><span class="mord cjk_fallback">，</span><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="mord cjk_fallback">，</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">，</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.28055599999999997em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">，</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">）</span></span></span></span>，其中Q，∑，σ都是有穷集合。</p>
-<p>Q是状态集；</p>
-<p>∑是输入字母表，不包括特殊空白符号；</p>
-<p>σ是带字母表，其中包括∑与空白符号；</p>
-<p>δ：Q×σ→Q×σ×（L，R）是转移函数；</p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>q</mi><mn>0</mn></msub><mo>∈</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">q_0∈Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span>是起始状态；</p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>q</mi><mrow><mi>a</mi><mi>c</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi></mrow></msub><mo>∈</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">q_{accept}∈Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.28055599999999997em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span>是接收状态；</p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>q</mi><mrow><mi>r</mi><mi>e</mi><mi>j</mi><mi>e</mi><mi>c</mi><mi>t</mi></mrow></msub><mo>∈</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">q_{reject}∈Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span>是拒绝状态；</p>
 ]]></content>
     </entry>
 </feed>

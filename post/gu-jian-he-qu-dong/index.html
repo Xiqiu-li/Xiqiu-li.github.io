@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>固件和驱动 | Xiqiu&#39;s blog</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1611753753598">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://Xiqiu-li.github.io">
+        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1611753753598" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://Xiqiu-li.github.io">
+        <h1 class="site-title">Xiqiu&#39;s blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">固件和驱动</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-01-27 21:22:09</span>
+            
+          </div>
+          <div class="post-content">
+            <p>但在Linux Kernel中，Driver和Firmware是有明确含义的，其中Driver是控制被操作系统管理的外部设备（Device）的代码段。很多时候Driver会被实现为LKM，但这不是必要条件。driver通过register_dirver()注册到总线(bus_type）上，当某个device被注册到同样的总线的时候，driver和device会通过一定的策略进行binding，最终在probe()函数中由driver实际控制对应的设备，并把对该设备的控制接口注册到Linux的其他子系统上（例如字符设备，v4l2子系统等）。<br>
+而Firmware，是表示运行在非“控制处理器”（指不直接运行操作系统的处理器，例如外设中的处理器，或者被用于bare metal的主处理器的其中一些核)中的程序。这些程序很多时候使用和操作系统所运行的处理器完全不同的指令集。这些程序以二进制形式存在于Linux内核的源代码树中，根据配置，可以直接集成到最终的映像中，或者被拷贝到指定的位置。当driver对device进行初始化的时候，通过load_firmware()等接口，可以把指定的firmware加载到内存中，由驱动传输到指定的设备上。</p>
+
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://Xiqiu-li.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '2e451ce0d397e2949463',
+        clientSecret: '3c576796dc4dfe752c01188e4a2cd84899fb16a3',
+        repo: 'talk',
+        owner: 'Xiqiu-li',
+        admin: ['Xiqiu-li'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

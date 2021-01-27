@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1611639671146">
+<link rel="shortcut icon" href="https://Xiqiu-li.github.io/favicon.ico?v=1611753753598">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Xiqiu-li.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://Xiqiu-li.github.io">
-        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1611639671146" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://Xiqiu-li.github.io/images/avatar.png?v=1611753753598" alt="" width="32px" height="32px">
       </a>
       <a href="https://Xiqiu-li.github.io">
         <h1 class="site-title">Xiqiu&#39;s blog</h1>
@@ -82,7 +82,7 @@
           
           <h2 class="post-title">从零实现语言</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2021-01-11 22:40:00</span>
+            <span><i class="icon-calendar-outline"></i> 2021-01-26 23:08:55</span>
             
               <span>
                 <i class="icon-pricetags-outline"></i>
@@ -96,24 +96,58 @@
             
           </div>
           <div class="post-content">
-            <p>学习一门语言就尝试写他的实现，本计划尝试从零实现各种语言特性。<br>
-编译器，解释器，即使编译(JIT)<br>
+            <h2 id="实现">实现</h2>
+<p>学习一门语言就尝试写他的实现，本计划尝试从零实现各种语言特性。<br>
+编译器，解释器，即时编译(JIT)<br>
 parser、连接器、汇编器、</p>
 <p>parser：Parser Combinators</p>
-<p>指针<br>
-goto<br>
-流程控制<br>
-repl<br>
+<h2 id="范式">范式</h2>
+<p>命令式<br>
+面向对象<br>
+函数式</p>
+<h2 id="风格">风格</h2>
+<p>CPS<br>
+monad<br>
+point free<br>
+currying</p>
+<h2 id="特性feature">特性feature</h2>
+<p>repl<br>
 gc<br>
-ambda<br>
-macro(Hygienic macro)<br>
-continuation</p>
+JIT</p>
+<p>指针</p>
+<p>管道</p>
+<p>作用域(变量)</p>
+<p>流程控制</p>
+<pre><code>goto
+continuation（CPST
+</code></pre>
+<p>类型系统</p>
+<pre><code>动态类型
+静态类型
+</code></pre>
+<p>lambda<br>
+macro(Hygienic macro)</p>
+<p>函数调用</p>
+<pre><code>传名调用
+传值调用
+引用调用
+地址调用
+</code></pre>
 <p>closure（closure conversion，closure优化<br>
-尾递归优化（tail-call optimization）</p>
-<p>scheme专用<br>
-match宏</p>
+Lambda lifting</p>
+<p>尾递归优化（tail-call optimization）</p>
+<p>scheme专用</p>
+<pre><code>read宏
+match宏
+</code></pre>
+<h2 id="可能的缺陷">可能的缺陷</h2>
+<p>词法问题：程序被词法分析器分解成符号过程中可能出现的错误<br>
+语法结构可能出现的偏差<br>
+语义与初衷出现偏差<br>
+可移植性问题</p>
 <h2 id="reference">reference</h2>
-<p><a href="https://ksco.gitbooks.io/build-your-own-lisp/content/">build your own lisp</a></p>
+<p><a href="https://ksco.gitbooks.io/build-your-own-lisp/content/">build your own lisp</a><br>
+C陷阱与缺陷</p>
 
           </div>
         </div>
